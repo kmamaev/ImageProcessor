@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWS-OU-5dX" userLabel="Top Container">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="232"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="224"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1r3-sH-61N" userLabel="Top Left Container">
-                                        <rect key="frame" x="4" y="4" width="152" height="224"/>
+                                        <rect key="frame" x="8" y="4" width="148" height="216"/>
                                         <subviews>
                                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_image" translatesAutoresizingMaskIntoConstraints="NO" id="mZb-aO-6aH" userLabel="Source Image View">
-                                                <rect key="frame" x="0.0" y="12" width="152" height="200"/>
+                                                <rect key="frame" x="0.0" y="8" width="148" height="200"/>
                                                 <gestureRecognizers/>
                                             </imageView>
                                         </subviews>
@@ -40,13 +40,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Z2-oV-k9T" userLabel="Top Right Container">
-                                        <rect key="frame" x="164" y="4" width="152" height="224"/>
+                                        <rect key="frame" x="164" y="4" width="148" height="216"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzj-am-6H0" userLabel="Buttons Container">
-                                                <rect key="frame" x="0.0" y="55.5" width="152" height="114"/>
+                                                <rect key="frame" x="0.0" y="49.5" width="148" height="118"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgv-JU-wLp" userLabel="Rotate Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="152" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="148" height="34"/>
                                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="@Rotate">
@@ -57,7 +57,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu0-RS-vjb" userLabel="Invert Colors Button">
-                                                        <rect key="frame" x="0.0" y="40" width="152" height="34"/>
+                                                        <rect key="frame" x="0.0" y="42" width="148" height="34"/>
                                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="@Invert Colors">
@@ -68,7 +68,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71G-k1-6Bn" userLabel="Mirror Image Button">
-                                                        <rect key="frame" x="0.0" y="80" width="152" height="34"/>
+                                                        <rect key="frame" x="0.0" y="84" width="148" height="34"/>
                                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="@Mirror Image">
@@ -81,10 +81,10 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="71G-k1-6Bn" firstAttribute="top" secondItem="Hu0-RS-vjb" secondAttribute="bottom" constant="6" id="7ef-xZ-t54"/>
+                                                    <constraint firstItem="71G-k1-6Bn" firstAttribute="top" secondItem="Hu0-RS-vjb" secondAttribute="bottom" constant="8" id="7ef-xZ-t54"/>
                                                     <constraint firstItem="Zgv-JU-wLp" firstAttribute="leading" secondItem="kzj-am-6H0" secondAttribute="leading" id="FDP-Cc-YCQ"/>
                                                     <constraint firstAttribute="bottom" secondItem="71G-k1-6Bn" secondAttribute="bottom" id="LjH-XZ-tZA"/>
-                                                    <constraint firstItem="Hu0-RS-vjb" firstAttribute="top" secondItem="Zgv-JU-wLp" secondAttribute="bottom" constant="6" id="Rkp-LD-dM9"/>
+                                                    <constraint firstItem="Hu0-RS-vjb" firstAttribute="top" secondItem="Zgv-JU-wLp" secondAttribute="bottom" constant="8" id="Rkp-LD-dM9"/>
                                                     <constraint firstAttribute="trailing" secondItem="71G-k1-6Bn" secondAttribute="trailing" id="WR3-4g-kVm"/>
                                                     <constraint firstItem="Hu0-RS-vjb" firstAttribute="leading" secondItem="kzj-am-6H0" secondAttribute="leading" id="bDT-SM-KxW"/>
                                                     <constraint firstItem="71G-k1-6Bn" firstAttribute="leading" secondItem="kzj-am-6H0" secondAttribute="leading" id="lzC-hb-yNJ"/>
@@ -111,16 +111,16 @@
                                     <constraint firstItem="5Z2-oV-k9T" firstAttribute="width" secondItem="1r3-sH-61N" secondAttribute="width" id="Xcu-Bb-iFo"/>
                                     <constraint firstItem="1r3-sH-61N" firstAttribute="top" secondItem="MWS-OU-5dX" secondAttribute="top" constant="4" id="XqC-qD-8dI"/>
                                     <constraint firstItem="5Z2-oV-k9T" firstAttribute="top" secondItem="MWS-OU-5dX" secondAttribute="top" constant="4" id="gA9-9c-GpN"/>
-                                    <constraint firstItem="1r3-sH-61N" firstAttribute="leading" secondItem="MWS-OU-5dX" secondAttribute="leading" constant="4" id="hJK-RA-cOT"/>
+                                    <constraint firstItem="1r3-sH-61N" firstAttribute="leading" secondItem="MWS-OU-5dX" secondAttribute="leading" constant="8" id="hJK-RA-cOT"/>
                                     <constraint firstAttribute="bottom" secondItem="1r3-sH-61N" secondAttribute="bottom" constant="4" id="oIm-ZX-zO5"/>
-                                    <constraint firstAttribute="trailing" secondItem="5Z2-oV-k9T" secondAttribute="trailing" constant="4" id="vU9-nz-OlF"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Z2-oV-k9T" secondAttribute="trailing" constant="8" id="vU9-nz-OlF"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCe-Kt-tu1" userLabel="Bottom Container">
-                                <rect key="frame" x="0.0" y="232" width="320" height="336"/>
+                                <rect key="frame" x="0.0" y="244" width="320" height="324"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ULB-fd-m08" userLabel="Result Images Table View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
                                 </subviews>
@@ -137,6 +137,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DCe-Kt-tu1" secondAttribute="trailing" id="DxC-Wb-2fF"/>
                             <constraint firstItem="DCe-Kt-tu1" firstAttribute="top" secondItem="MWS-OU-5dX" secondAttribute="bottom" id="FDq-qq-WVX"/>
+                            <constraint firstItem="MWS-OU-5dX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="H17-kC-yNs"/>
                             <constraint firstItem="MWS-OU-5dX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WvA-J7-Ore"/>
                             <constraint firstAttribute="trailing" secondItem="MWS-OU-5dX" secondAttribute="trailing" id="bfG-sA-xVp"/>
                             <constraint firstItem="DCe-Kt-tu1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hKA-ra-UMC"/>
@@ -144,6 +145,11 @@
                             <constraint firstItem="MWS-OU-5dX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mo3-kT-Szu"/>
                             <constraint firstItem="DCe-Kt-tu1" firstAttribute="height" secondItem="MWS-OU-5dX" secondAttribute="height" multiplier="1.45" id="qT1-x0-eMT"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="WvA-J7-Ore"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>

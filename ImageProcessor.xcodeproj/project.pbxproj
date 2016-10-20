@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B52721B31DB92A5D00888864 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = B52721B21DB92A5D00888864 /* UIImage+Filters.m */; };
 		B52973611DB8C204007DFAF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973551DB8C204007DFAF6 /* AppDelegate.m */; };
 		B52973631DB8C204007DFAF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52973581DB8C204007DFAF6 /* Assets.xcassets */; };
 		B52973641DB8C204007DFAF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52973591DB8C204007DFAF6 /* LaunchScreen.storyboard */; };
@@ -26,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		B52721B01DB8DEB000888864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B52721B11DB92A5D00888864 /* UIImage+Filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filters.h"; sourceTree = "<group>"; };
+		B52721B21DB92A5D00888864 /* UIImage+Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filters.m"; sourceTree = "<group>"; };
 		B52973241DB8C0DE007DFAF6 /* ImageProcessor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52973541DB8C204007DFAF6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B52973551DB8C204007DFAF6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 			children = (
 				B52973811DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.h */,
 				B52973821DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.m */,
+				B52721B11DB92A5D00888864 /* UIImage+Filters.h */,
+				B52721B21DB92A5D00888864 /* UIImage+Filters.m */,
 			);
 			path = Utils;
 			sourceTree = SOURCE_ROOT;
@@ -244,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B529737F1DB8CA27007DFAF6 /* UIColor+HexString.m in Sources */,
+				B52721B31DB92A5D00888864 /* UIImage+Filters.m in Sources */,
 				B529737E1DB8CA27007DFAF6 /* UITextField+Localization.m in Sources */,
 				B529737A1DB8CA27007DFAF6 /* UIButton+Localization.m in Sources */,
 				B52973671DB8C204007DFAF6 /* MainVC.m in Sources */,

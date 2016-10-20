@@ -42,22 +42,40 @@
                                         <rect key="frame" x="164" y="4" width="152" height="224"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzj-am-6H0" userLabel="Buttons Container">
-                                                <rect key="frame" x="0.0" y="61.5" width="152" height="102"/>
+                                                <rect key="frame" x="0.0" y="55.5" width="152" height="114"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgv-JU-wLp" userLabel="Rotate Button">
-                                                        <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="152" height="34"/>
                                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" title="@Rotate"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="@Rotate">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.Rotate"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu0-RS-vjb" userLabel="Invert Colors Button">
-                                                        <rect key="frame" x="0.0" y="36" width="152" height="30"/>
+                                                        <rect key="frame" x="0.0" y="40" width="152" height="34"/>
                                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" title="@Invert Colors"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="@Invert Colors">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.InvertColors"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71G-k1-6Bn" userLabel="Mirror Image Button">
-                                                        <rect key="frame" x="0.0" y="72" width="152" height="30"/>
+                                                        <rect key="frame" x="0.0" y="80" width="152" height="34"/>
                                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" title="@Mirror Image"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="@Mirror Image">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.MirrorImage"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -128,11 +146,17 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="invertColorsButton" destination="Hu0-RS-vjb" id="eN7-QQ-tc1"/>
+                        <outlet property="mirrorImageButton" destination="71G-k1-6Bn" id="T8s-UP-nLn"/>
+                        <outlet property="rotateButton" destination="Zgv-JU-wLp" id="H0c-br-sp6"/>
                         <outletCollection property="invisibleViews" destination="MWS-OU-5dX" id="LHJ-Bb-dab"/>
                         <outletCollection property="invisibleViews" destination="1r3-sH-61N" id="Fpc-1Z-T9K"/>
                         <outletCollection property="invisibleViews" destination="5Z2-oV-k9T" id="Wvy-e6-RfY"/>
                         <outletCollection property="invisibleViews" destination="kzj-am-6H0" id="Myg-Ft-2Uf"/>
                         <outletCollection property="invisibleViews" destination="DCe-Kt-tu1" id="RGe-1e-Al9"/>
+                        <outletCollection property="filterButtons" destination="Zgv-JU-wLp" id="zQG-nt-ypP"/>
+                        <outletCollection property="filterButtons" destination="Hu0-RS-vjb" id="8rE-F3-WgC"/>
+                        <outletCollection property="filterButtons" destination="71G-k1-6Bn" id="5mC-30-oaU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

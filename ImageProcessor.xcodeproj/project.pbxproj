@@ -8,13 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B52973611DB8C204007DFAF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973551DB8C204007DFAF6 /* AppDelegate.m */; };
-		B52973621DB8C204007DFAF6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B52973561DB8C204007DFAF6 /* Info.plist */; };
 		B52973631DB8C204007DFAF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52973581DB8C204007DFAF6 /* Assets.xcassets */; };
 		B52973641DB8C204007DFAF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52973591DB8C204007DFAF6 /* LaunchScreen.storyboard */; };
 		B52973651DB8C204007DFAF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B529735B1DB8C204007DFAF6 /* main.m */; };
 		B52973661DB8C204007DFAF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B529735E1DB8C204007DFAF6 /* Main.storyboard */; };
 		B52973671DB8C204007DFAF6 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973601DB8C204007DFAF6 /* MainVC.m */; };
-		B52973851DB8CBBE007DFAF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B52973841DB8CBBD007DFAF6 /* Localizable.strings */; };
 		B52973791DB8CA27007DFAF6 /* UIBarButtonItem+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B529736B1DB8CA27007DFAF6 /* UIBarButtonItem+Localization.m */; };
 		B529737A1DB8CA27007DFAF6 /* UIButton+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B529736D1DB8CA27007DFAF6 /* UIButton+Localization.m */; };
 		B529737B1DB8CA27007DFAF6 /* UILabel+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B529736F1DB8CA27007DFAF6 /* UILabel+Localization.m */; };
@@ -23,20 +21,20 @@
 		B529737E1DB8CA27007DFAF6 /* UITextField+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973751DB8CA27007DFAF6 /* UITextField+Localization.m */; };
 		B529737F1DB8CA27007DFAF6 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973781DB8CA27007DFAF6 /* UIColor+HexString.m */; };
 		B52973831DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973821DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.m */; };
+		B52973851DB8CBBE007DFAF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B52973841DB8CBBD007DFAF6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B52721B01DB8DEB000888864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B52973241DB8C0DE007DFAF6 /* ImageProcessor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52973541DB8C204007DFAF6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B52973551DB8C204007DFAF6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B52973561DB8C204007DFAF6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B52973581DB8C204007DFAF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B52973591DB8C204007DFAF6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B529735B1DB8C204007DFAF6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B529735E1DB8C204007DFAF6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B529735F1DB8C204007DFAF6 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		B52973601DB8C204007DFAF6 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
-		B52973841DB8CBBD007DFAF6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B529736A1DB8CA27007DFAF6 /* UIBarButtonItem+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Localization.h"; sourceTree = "<group>"; };
 		B529736B1DB8CA27007DFAF6 /* UIBarButtonItem+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Localization.m"; sourceTree = "<group>"; };
 		B529736C1DB8CA27007DFAF6 /* UIButton+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Localization.h"; sourceTree = "<group>"; };
@@ -54,6 +52,7 @@
 		B52973781DB8CA27007DFAF6 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		B52973811DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ImageProcessorConstants.h"; sourceTree = "<group>"; };
 		B52973821DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ImageProcessorConstants.m"; sourceTree = "<group>"; };
+		B52973841DB8CBBD007DFAF6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +92,7 @@
 				B529735A1DB8C204007DFAF6 /* Supporting Files */,
 				B52973541DB8C204007DFAF6 /* AppDelegate.h */,
 				B52973551DB8C204007DFAF6 /* AppDelegate.m */,
-				B52973561DB8C204007DFAF6 /* Info.plist */,
+				B52721B01DB8DEB000888864 /* Info.plist */,
 			);
 			path = ImageProcessor;
 			sourceTree = "<group>";
@@ -233,7 +232,6 @@
 				B52973851DB8CBBE007DFAF6 /* Localizable.strings in Resources */,
 				B52973641DB8C204007DFAF6 /* LaunchScreen.storyboard in Resources */,
 				B52973631DB8C204007DFAF6 /* Assets.xcassets in Resources */,
-				B52973621DB8C204007DFAF6 /* Info.plist in Resources */,
 				B52973661DB8C204007DFAF6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

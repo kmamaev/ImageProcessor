@@ -22,6 +22,7 @@
 		B529737D1DB8CA27007DFAF6 /* UISearchBar+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973731DB8CA27007DFAF6 /* UISearchBar+Localization.m */; };
 		B529737E1DB8CA27007DFAF6 /* UITextField+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973751DB8CA27007DFAF6 /* UITextField+Localization.m */; };
 		B529737F1DB8CA27007DFAF6 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973781DB8CA27007DFAF6 /* UIColor+HexString.m */; };
+		B52973831DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973821DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		B52973761DB8CA27007DFAF6 /* LocalizationRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationRoutines.h; sourceTree = "<group>"; };
 		B52973771DB8CA27007DFAF6 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
 		B52973781DB8CA27007DFAF6 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		B52973811DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ImageProcessorConstants.h"; sourceTree = "<group>"; };
+		B52973821DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ImageProcessorConstants.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,7 @@
 			children = (
 				B52973571DB8C204007DFAF6 /* Resources */,
 				B529735C1DB8C204007DFAF6 /* ViewControllers */,
+				B52973801DB8CAA7007DFAF6 /* Utils */,
 				B529735A1DB8C204007DFAF6 /* Supporting Files */,
 				B52973541DB8C204007DFAF6 /* AppDelegate.h */,
 				B52973551DB8C204007DFAF6 /* AppDelegate.m */,
@@ -159,6 +163,15 @@
 			);
 			path = Localization;
 			sourceTree = "<group>";
+		};
+		B52973801DB8CAA7007DFAF6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B52973811DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.h */,
+				B52973821DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.m */,
+			);
+			path = Utils;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -241,6 +254,7 @@
 				B52973611DB8C204007DFAF6 /* AppDelegate.m in Sources */,
 				B52973791DB8CA27007DFAF6 /* UIBarButtonItem+Localization.m in Sources */,
 				B529737B1DB8CA27007DFAF6 /* UILabel+Localization.m in Sources */,
+				B52973831DB8CAA7007DFAF6 /* UIColor+ImageProcessorConstants.m in Sources */,
 				B529737C1DB8CA27007DFAF6 /* UINavigationItem+Localization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

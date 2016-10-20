@@ -4,6 +4,7 @@
 
 // Main Screen
 "Main.Button.Rotate" = "Rotate";
+"Main.Button.Monochrome" = "Monochrome";
 "Main.Button.InvertColors" = "Invert Colors";
 "Main.Button.MirrorImage" = "Mirror Image";
 "Main.Button.ChooseImage" = "Choose Image";

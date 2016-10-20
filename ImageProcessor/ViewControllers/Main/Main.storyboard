@@ -55,17 +55,23 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.Rotate"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="rotateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vn8-df-hnW"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu0-RS-vjb" userLabel="Invert Colors Button">
                                                         <rect key="frame" x="0.0" y="42" width="148" height="34"/>
                                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <state key="normal" title="@Invert Colors">
+                                                        <state key="normal" title="@Monochrome">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.InvertColors"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.Monochrome"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="monochromeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TUY-at-VPa"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71G-k1-6Bn" userLabel="Mirror Image Button">
                                                         <rect key="frame" x="0.0" y="84" width="148" height="34"/>
@@ -77,6 +83,9 @@
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.MirrorImage"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="mirrorImageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fr1-ql-gTs"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -153,9 +162,6 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="invertColorsButton" destination="Hu0-RS-vjb" id="eN7-QQ-tc1"/>
-                        <outlet property="mirrorImageButton" destination="71G-k1-6Bn" id="T8s-UP-nLn"/>
-                        <outlet property="rotateButton" destination="Zgv-JU-wLp" id="H0c-br-sp6"/>
                         <outlet property="sourceImageView" destination="mZb-aO-6aH" id="anj-a0-Oq3"/>
                         <outletCollection property="invisibleViews" destination="MWS-OU-5dX" id="LHJ-Bb-dab"/>
                         <outletCollection property="invisibleViews" destination="1r3-sH-61N" id="Fpc-1Z-T9K"/>

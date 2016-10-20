@@ -3,6 +3,7 @@
 // Utils
 #import "UIColor+ImageProcessorConstants.h"
 #import "LocalizationRoutines.h"
+#import "UIImage+Filters.h"
 
 
 @interface MainVC () <
@@ -12,9 +13,6 @@
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *invisibleViews;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *filterButtons;
 
-@property (strong, nonatomic) IBOutlet UIButton *rotateButton;
-@property (strong, nonatomic) IBOutlet UIButton *invertColorsButton;
-@property (strong, nonatomic) IBOutlet UIButton *mirrorImageButton;
 @property (strong, nonatomic) IBOutlet UIImageView *sourceImageView;
 @end
 
@@ -83,6 +81,27 @@
     imagePickerController.delegate = self;
     imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+
+- (IBAction)rotateButtonTapped:(UIButton *)sender {
+    UIImage *filteredImage = [self.sourceImageView.image imageRotatedByNintyDegrees];
+    self.sourceImageView.image = filteredImage;
+}
+
+- (IBAction)monochromeButtonTapped:(UIButton *)sender {
+    UIImage *filteredImage = [self.sourceImageView.image monochromeImage];
+    self.sourceImageView.image = filteredImage;
+}
+
+- (IBAction)invertColorButtonTapped:(UIButton *)sender {
+    UIImage *filteredImage = [self.sourceImageView.image imageWithInvertedColors];
+    self.sourceImageView.image = filteredImage;
+}
+
+- (IBAction)mirrorImageButtonTapped:(UIButton *)sender {
+    UIImage *filteredImage = [self.sourceImageView.image imageMirroredHorizontally];
+    self.sourceImageView.image = filteredImage;
 }
 
 #pragma mark - UIImagePickerControllerDelegate implementation

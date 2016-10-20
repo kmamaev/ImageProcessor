@@ -14,6 +14,7 @@
 		B52973651DB8C204007DFAF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B529735B1DB8C204007DFAF6 /* main.m */; };
 		B52973661DB8C204007DFAF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B529735E1DB8C204007DFAF6 /* Main.storyboard */; };
 		B52973671DB8C204007DFAF6 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973601DB8C204007DFAF6 /* MainVC.m */; };
+		B52973851DB8CBBE007DFAF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B52973841DB8CBBD007DFAF6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B529735E1DB8C204007DFAF6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B529735F1DB8C204007DFAF6 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		B52973601DB8C204007DFAF6 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		B52973841DB8CBBD007DFAF6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				B52973581DB8C204007DFAF6 /* Assets.xcassets */,
 				B52973591DB8C204007DFAF6 /* LaunchScreen.storyboard */,
+				B52973841DB8CBBD007DFAF6 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52973851DB8CBBE007DFAF6 /* Localizable.strings in Resources */,
 				B52973641DB8C204007DFAF6 /* LaunchScreen.storyboard in Resources */,
 				B52973631DB8C204007DFAF6 /* Assets.xcassets in Resources */,
 				B52973621DB8C204007DFAF6 /* Info.plist in Resources */,

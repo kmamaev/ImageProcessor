@@ -15,6 +15,13 @@
 		B52973661DB8C204007DFAF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B529735E1DB8C204007DFAF6 /* Main.storyboard */; };
 		B52973671DB8C204007DFAF6 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973601DB8C204007DFAF6 /* MainVC.m */; };
 		B52973851DB8CBBE007DFAF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B52973841DB8CBBD007DFAF6 /* Localizable.strings */; };
+		B52973791DB8CA27007DFAF6 /* UIBarButtonItem+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B529736B1DB8CA27007DFAF6 /* UIBarButtonItem+Localization.m */; };
+		B529737A1DB8CA27007DFAF6 /* UIButton+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B529736D1DB8CA27007DFAF6 /* UIButton+Localization.m */; };
+		B529737B1DB8CA27007DFAF6 /* UILabel+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B529736F1DB8CA27007DFAF6 /* UILabel+Localization.m */; };
+		B529737C1DB8CA27007DFAF6 /* UINavigationItem+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973711DB8CA27007DFAF6 /* UINavigationItem+Localization.m */; };
+		B529737D1DB8CA27007DFAF6 /* UISearchBar+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973731DB8CA27007DFAF6 /* UISearchBar+Localization.m */; };
+		B529737E1DB8CA27007DFAF6 /* UITextField+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973751DB8CA27007DFAF6 /* UITextField+Localization.m */; };
+		B529737F1DB8CA27007DFAF6 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = B52973781DB8CA27007DFAF6 /* UIColor+HexString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +36,21 @@
 		B529735F1DB8C204007DFAF6 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		B52973601DB8C204007DFAF6 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		B52973841DB8CBBD007DFAF6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		B529736A1DB8CA27007DFAF6 /* UIBarButtonItem+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Localization.h"; sourceTree = "<group>"; };
+		B529736B1DB8CA27007DFAF6 /* UIBarButtonItem+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Localization.m"; sourceTree = "<group>"; };
+		B529736C1DB8CA27007DFAF6 /* UIButton+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Localization.h"; sourceTree = "<group>"; };
+		B529736D1DB8CA27007DFAF6 /* UIButton+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Localization.m"; sourceTree = "<group>"; };
+		B529736E1DB8CA27007DFAF6 /* UILabel+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Localization.h"; sourceTree = "<group>"; };
+		B529736F1DB8CA27007DFAF6 /* UILabel+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Localization.m"; sourceTree = "<group>"; };
+		B52973701DB8CA27007DFAF6 /* UINavigationItem+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Localization.h"; sourceTree = "<group>"; };
+		B52973711DB8CA27007DFAF6 /* UINavigationItem+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Localization.m"; sourceTree = "<group>"; };
+		B52973721DB8CA27007DFAF6 /* UISearchBar+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+Localization.h"; sourceTree = "<group>"; };
+		B52973731DB8CA27007DFAF6 /* UISearchBar+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+Localization.m"; sourceTree = "<group>"; };
+		B52973741DB8CA27007DFAF6 /* UITextField+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Localization.h"; sourceTree = "<group>"; };
+		B52973751DB8CA27007DFAF6 /* UITextField+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Localization.m"; sourceTree = "<group>"; };
+		B52973761DB8CA27007DFAF6 /* LocalizationRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizationRoutines.h; sourceTree = "<group>"; };
+		B52973771DB8CA27007DFAF6 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		B52973781DB8CA27007DFAF6 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +67,7 @@
 		B529731B1DB8C0DE007DFAF6 = {
 			isa = PBXGroup;
 			children = (
+				B52973681DB8CA27007DFAF6 /* External */,
 				B52973531DB8C204007DFAF6 /* ImageProcessor */,
 				B52973251DB8C0DE007DFAF6 /* Products */,
 			);
@@ -105,6 +128,36 @@
 				B52973601DB8C204007DFAF6 /* MainVC.m */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		B52973681DB8CA27007DFAF6 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				B52973691DB8CA27007DFAF6 /* Localization */,
+				B52973761DB8CA27007DFAF6 /* LocalizationRoutines.h */,
+				B52973771DB8CA27007DFAF6 /* UIColor+HexString.h */,
+				B52973781DB8CA27007DFAF6 /* UIColor+HexString.m */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		B52973691DB8CA27007DFAF6 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				B529736A1DB8CA27007DFAF6 /* UIBarButtonItem+Localization.h */,
+				B529736B1DB8CA27007DFAF6 /* UIBarButtonItem+Localization.m */,
+				B529736C1DB8CA27007DFAF6 /* UIButton+Localization.h */,
+				B529736D1DB8CA27007DFAF6 /* UIButton+Localization.m */,
+				B529736E1DB8CA27007DFAF6 /* UILabel+Localization.h */,
+				B529736F1DB8CA27007DFAF6 /* UILabel+Localization.m */,
+				B52973701DB8CA27007DFAF6 /* UINavigationItem+Localization.h */,
+				B52973711DB8CA27007DFAF6 /* UINavigationItem+Localization.m */,
+				B52973721DB8CA27007DFAF6 /* UISearchBar+Localization.h */,
+				B52973731DB8CA27007DFAF6 /* UISearchBar+Localization.m */,
+				B52973741DB8CA27007DFAF6 /* UITextField+Localization.h */,
+				B52973751DB8CA27007DFAF6 /* UITextField+Localization.m */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,9 +232,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B529737F1DB8CA27007DFAF6 /* UIColor+HexString.m in Sources */,
+				B529737E1DB8CA27007DFAF6 /* UITextField+Localization.m in Sources */,
+				B529737A1DB8CA27007DFAF6 /* UIButton+Localization.m in Sources */,
 				B52973671DB8C204007DFAF6 /* MainVC.m in Sources */,
+				B529737D1DB8CA27007DFAF6 /* UISearchBar+Localization.m in Sources */,
 				B52973651DB8C204007DFAF6 /* main.m in Sources */,
 				B52973611DB8C204007DFAF6 /* AppDelegate.m in Sources */,
+				B52973791DB8CA27007DFAF6 /* UIBarButtonItem+Localization.m in Sources */,
+				B529737B1DB8CA27007DFAF6 /* UILabel+Localization.m in Sources */,
+				B529737C1DB8CA27007DFAF6 /* UINavigationItem+Localization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

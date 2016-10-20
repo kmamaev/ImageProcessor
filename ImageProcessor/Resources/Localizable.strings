@@ -1,5 +1,11 @@
+// General
+"General.Cancel" = "Cancel";
+
+
 // Main Screen
 "Main.Button.Rotate" = "Rotate";
 "Main.Button.InvertColors" = "Invert Colors";
 "Main.Button.MirrorImage" = "Mirror Image";
 "Main.Button.ChooseImage" = "Choose Image";
+"Main.Action.TakePhoto" = "Take Photo";
+"Main.Action.PhotoLibrary" = "Photo Library";

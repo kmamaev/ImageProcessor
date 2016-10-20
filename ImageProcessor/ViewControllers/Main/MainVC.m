@@ -2,15 +2,20 @@
 
 // Utils
 #import "UIColor+ImageProcessorConstants.h"
+#import "LocalizationRoutines.h"
 
 
-@interface MainVC ()
+@interface MainVC () <
+        UINavigationControllerDelegate,
+        UIImagePickerControllerDelegate
+    >
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *invisibleViews;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *filterButtons;
 
 @property (strong, nonatomic) IBOutlet UIButton *rotateButton;
 @property (strong, nonatomic) IBOutlet UIButton *invertColorsButton;
 @property (strong, nonatomic) IBOutlet UIButton *mirrorImageButton;
+@property (strong, nonatomic) IBOutlet UIImageView *sourceImageView;
 @end
 
 
@@ -23,6 +28,7 @@
     
     [self hideInvisibleViews];
     [self configureButtons];
+    [self configureSourceImageTapRecognizer];
 }
 
 #pragma mark - Configuration
@@ -37,6 +43,55 @@
     for (UIButton *button in self.filterButtons) {
         button.backgroundColor = [UIColor buttonColor];
     }
+}
+
+- (void)configureSourceImageTapRecognizer {
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+        action:@selector(sourceImageViewTapped:)];
+    [self.sourceImageView addGestureRecognizer:tapRecognizer];
+}
+
+#pragma mark - Actions
+
+- (void)sourceImageViewTapped:(UITapGestureRecognizer *)sender {
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil
+        preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"General.Cancel") style:UIAlertActionStyleCancel
+        handler:nil]];
+    [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"Main.Action.TakePhoto") style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction *action) {
+            [self takePhotoAction];
+        }]];
+    [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"Main.Action.PhotoLibrary") style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction *action) {
+            [self photoLibraryAction];
+        }]];
+    
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
+
+- (void)takePhotoAction {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.sourceType =  UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+- (void)photoLibraryAction {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate implementation
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image
+    editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    self.sourceImageView.image = image;
 }
 
 @end

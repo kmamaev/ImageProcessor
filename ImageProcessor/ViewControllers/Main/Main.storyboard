@@ -24,8 +24,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1r3-sH-61N" userLabel="Top Left Container">
                                         <rect key="frame" x="4" y="4" width="152" height="224"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_image" translatesAutoresizingMaskIntoConstraints="NO" id="mZb-aO-6aH" userLabel="Original Image View">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_image" translatesAutoresizingMaskIntoConstraints="NO" id="mZb-aO-6aH" userLabel="Source Image View">
                                                 <rect key="frame" x="0.0" y="12" width="152" height="200"/>
+                                                <gestureRecognizers/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -149,6 +150,7 @@
                         <outlet property="invertColorsButton" destination="Hu0-RS-vjb" id="eN7-QQ-tc1"/>
                         <outlet property="mirrorImageButton" destination="71G-k1-6Bn" id="T8s-UP-nLn"/>
                         <outlet property="rotateButton" destination="Zgv-JU-wLp" id="H0c-br-sp6"/>
+                        <outlet property="sourceImageView" destination="mZb-aO-6aH" id="anj-a0-Oq3"/>
                         <outletCollection property="invisibleViews" destination="MWS-OU-5dX" id="LHJ-Bb-dab"/>
                         <outletCollection property="invisibleViews" destination="1r3-sH-61N" id="Fpc-1Z-T9K"/>
                         <outletCollection property="invisibleViews" destination="5Z2-oV-k9T" id="Wvy-e6-RfY"/>

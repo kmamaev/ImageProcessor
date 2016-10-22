@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9531"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SeparatorView">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="HkU-ux-oRE"/>
+                <outletCollection property="boundViews" destination="00b-z3-aGa" id="jG5-IN-Dls"/>
+                <outletCollection property="boundViews" destination="8ki-OC-RrS" id="1DH-Vw-zxw"/>
+                <outletCollection property="boundHeights" destination="9rO-zl-dNi" id="Y6U-9j-uHH"/>
+                <outletCollection property="boundHeights" destination="mga-DY-J3z" id="n6g-34-OTy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00b-z3-aGa" userLabel="Top Line View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="9rO-zl-dNi"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ki-OC-RrS" userLabel="Bottom Line View">
+                    <rect key="frame" x="0.0" y="50" width="320" height="10"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="mga-DY-J3z"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="00b-z3-aGa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="8JK-6A-eob"/>
+                <constraint firstAttribute="trailing" secondItem="8ki-OC-RrS" secondAttribute="trailing" id="IVO-Te-Lro"/>
+                <constraint firstAttribute="trailing" secondItem="00b-z3-aGa" secondAttribute="trailing" id="KGX-GO-Odp"/>
+                <constraint firstItem="00b-z3-aGa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Yuc-E5-pxL"/>
+                <constraint firstAttribute="bottom" secondItem="8ki-OC-RrS" secondAttribute="bottom" id="fuw-72-ixr"/>
+                <constraint firstItem="8ki-OC-RrS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kon-O5-0NS"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="219" y="113"/>
+        </view>
+    </objects>
+</document>

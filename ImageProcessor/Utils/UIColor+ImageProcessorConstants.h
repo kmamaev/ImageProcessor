@@ -5,4 +5,6 @@
 
 + (UIColor *)buttonColor;
 
++ (UIColor *)separatorColor;
+
 @end

@@ -82,6 +82,19 @@ static void *const _kvoContext = (void *)&_kvoContext;
 - (void)configureTableView {
     UINib *cellNib = [UINib nibWithNibName:NSStringFromClass([ResultImageCell class]) bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:_resultImageCellReuseId];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self configureTableBackgroundView];
+}
+
+- (void)configureTableBackgroundView {
+    UILabel *label = [[UILabel alloc] init];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:14];
+    label.textColor = [UIColor lightGrayColor];
+    label.numberOfLines = 0;
+    label.text = LS(@"Main.Label.NoResults");
+    self.tableView.backgroundView = label;
 }
 
 #pragma mark - Actions
@@ -163,7 +176,9 @@ static void *const _kvoContext = (void *)&_kvoContext;
 #pragma mark - UITableViewDataSource implementation
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.resultImages.count;
+    NSUInteger resultsCount = self.resultImages.count;
+    self.tableView.backgroundView.hidden = resultsCount > 0;
+    return resultsCount;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

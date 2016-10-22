@@ -13,3 +13,4 @@
 "Main.Action.SaveImage" = "Save Image";
 "Main.Action.UseAsSource" = "Use as Source";
 "Main.Action.DeleteImage" = "Delete Image";
+"Main.Label.NoResults" = "Choose an image and apply any filter to see the result";

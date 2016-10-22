@@ -128,9 +128,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCe-Kt-tu1" userLabel="Bottom Container">
                                 <rect key="frame" x="0.0" y="244" width="320" height="324"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ULB-fd-m08" userLabel="Result Images Table View">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ULB-fd-m08" userLabel="Result Images Table View">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="324"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="w9n-q0-YTY"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="ZS9-Ik-ozv"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -163,6 +167,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="sourceImageView" destination="mZb-aO-6aH" id="anj-a0-Oq3"/>
+                        <outlet property="tableView" destination="ULB-fd-m08" id="cPp-kA-BjC"/>
                         <outletCollection property="invisibleViews" destination="MWS-OU-5dX" id="LHJ-Bb-dab"/>
                         <outletCollection property="invisibleViews" destination="1r3-sH-61N" id="Fpc-1Z-T9K"/>
                         <outletCollection property="invisibleViews" destination="5Z2-oV-k9T" id="Wvy-e6-RfY"/>

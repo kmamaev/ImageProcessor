@@ -23,6 +23,9 @@
 		B52722311DBB8E7600888864 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = B527221B1DBB8E7600888864 /* UIImage+Filters.m */; };
 		B52722321DBB8E7600888864 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B527221E1DBB8E7600888864 /* Main.storyboard */; };
 		B52722331DBB8E7600888864 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722211DBB8E7600888864 /* MainVC.m */; };
+		B52722381DBB8FA600888864 /* ResultImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722361DBB8FA600888864 /* ResultImageCell.m */; };
+		B52722391DBB8FA600888864 /* ResultImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52722371DBB8FA600888864 /* ResultImageCell.xib */; };
+		B527223C1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = B527223B1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,11 @@
 		B52722201DBB8E7600888864 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		B52722211DBB8E7600888864 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		B52722341DBB8EAF00888864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B52722351DBB8FA600888864 /* ResultImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultImageCell.h; path = "../../../../../../untitled folder/ImageProcessor/ViewControllers/Main/MainVC/ResultImageCell/ResultImageCell.h"; sourceTree = "<group>"; };
+		B52722361DBB8FA600888864 /* ResultImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultImageCell.m; path = "../../../../../../untitled folder/ImageProcessor/ViewControllers/Main/MainVC/ResultImageCell/ResultImageCell.m"; sourceTree = "<group>"; };
+		B52722371DBB8FA600888864 /* ResultImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ResultImageCell.xib; path = "../../../../../../untitled folder/ImageProcessor/ViewControllers/Main/MainVC/ResultImageCell/ResultImageCell.xib"; sourceTree = "<group>"; };
+		B527223A1DBB8FDD00888864 /* NSIndexSet+IndexPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+IndexPaths.h"; sourceTree = "<group>"; };
+		B527223B1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+IndexPaths.m"; sourceTree = "<group>"; };
 		B52973241DB8C0DE007DFAF6 /* ImageProcessor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -138,6 +146,8 @@
 				B52722191DBB8E7600888864 /* UIColor+ImageProcessorConstants.m */,
 				B527221A1DBB8E7600888864 /* UIImage+Filters.h */,
 				B527221B1DBB8E7600888864 /* UIImage+Filters.m */,
+				B527223A1DBB8FDD00888864 /* NSIndexSet+IndexPaths.h */,
+				B527223B1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -172,6 +182,9 @@
 		B52722221DBB8E7600888864 /* ResultImageCell */ = {
 			isa = PBXGroup;
 			children = (
+				B52722351DBB8FA600888864 /* ResultImageCell.h */,
+				B52722361DBB8FA600888864 /* ResultImageCell.m */,
+				B52722371DBB8FA600888864 /* ResultImageCell.xib */,
 			);
 			path = ResultImageCell;
 			sourceTree = "<group>";
@@ -251,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B527222D1DBB8E7600888864 /* LaunchScreen.storyboard in Resources */,
+				B52722391DBB8FA600888864 /* ResultImageCell.xib in Resources */,
 				B52722321DBB8E7600888864 /* Main.storyboard in Resources */,
 				B527222E1DBB8E7600888864 /* Localizable.strings in Resources */,
 				B527222C1DBB8E7600888864 /* Assets.xcassets in Resources */,
@@ -273,8 +287,10 @@
 				B527222A1DBB8E7600888864 /* AppDelegate.m in Sources */,
 				B52722291DBB8E7600888864 /* UIColor+HexString.m in Sources */,
 				B52722251DBB8E7600888864 /* UILabel+Localization.m in Sources */,
+				B52722381DBB8FA600888864 /* ResultImageCell.m in Sources */,
 				B52722331DBB8E7600888864 /* MainVC.m in Sources */,
 				B527222F1DBB8E7600888864 /* main.m in Sources */,
+				B527223C1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m in Sources */,
 				B52722261DBB8E7600888864 /* UINavigationItem+Localization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

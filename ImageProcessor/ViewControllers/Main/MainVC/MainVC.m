@@ -118,6 +118,18 @@ static void *const _kvoContext = (void *)&_kvoContext;
     [self presentViewController:imagePickerController animated:YES completion:nil];
 }
 
+- (void)saveImage:(UIImage *)image {
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+}
+
+- (void)deleteImage:(UIImage *)image {
+    NSMutableArray *resultImagesProxy = [self mutableArrayValueForKey:NSStringFromSelector(@selector(resultImages))];
+    [resultImagesProxy removeObject:image];
+}
+
+- (void)useAsSourceImage:(UIImage *)image {
+    self.sourceImageView.image = image;
+}
 
 - (IBAction)rotateButtonTapped:(UIButton *)sender {
     UIImage *filteredImage = [self.sourceImageView.image imageRotatedByNintyDegrees];
@@ -168,7 +180,27 @@ static void *const _kvoContext = (void *)&_kvoContext;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // TODO: implement this
+    UIImage *chosenImage = self.resultImages[indexPath.row];
+    
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil
+        preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"General.Cancel") style:UIAlertActionStyleCancel
+        handler:nil]];
+    [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"Main.Action.SaveImage") style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction *action) {
+            [self saveImage:chosenImage];
+        }]];
+    [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"Main.Action.UseAsSource") style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction *action) {
+            [self useAsSourceImage:chosenImage];
+        }]];
+    [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"Main.Action.DeleteImage") style:UIAlertActionStyleDestructive
+        handler:^(UIAlertAction *action) {
+            [self deleteImage:chosenImage];
+        }]];
+    
+    [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
 #pragma mark - Auxiliaries

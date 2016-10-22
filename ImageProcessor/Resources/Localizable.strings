@@ -10,3 +10,6 @@
 "Main.Button.ChooseImage" = "Choose Image";
 "Main.Action.TakePhoto" = "Take Photo";
 "Main.Action.PhotoLibrary" = "Photo Library";
+"Main.Action.SaveImage" = "Save Image";
+"Main.Action.UseAsSource" = "Use as Source";
+"Main.Action.DeleteImage" = "Delete Image";

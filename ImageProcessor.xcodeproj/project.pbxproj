@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56AB29511DBCA7A1002C2FB9 /* ResultImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AB294F1DBCA7A1002C2FB9 /* ResultImageCell.m */; };
+		56AB29521DBCA7A1002C2FB9 /* ResultImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56AB29501DBCA7A1002C2FB9 /* ResultImageCell.xib */; };
 		B52722231DBB8E7600888864 /* UIBarButtonItem+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52721FF1DBB8E7600888864 /* UIBarButtonItem+Localization.m */; };
 		B52722241DBB8E7600888864 /* UIButton+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722011DBB8E7600888864 /* UIButton+Localization.m */; };
 		B52722251DBB8E7600888864 /* UILabel+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722031DBB8E7600888864 /* UILabel+Localization.m */; };
@@ -23,8 +25,6 @@
 		B52722311DBB8E7600888864 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = B527221B1DBB8E7600888864 /* UIImage+Filters.m */; };
 		B52722321DBB8E7600888864 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B527221E1DBB8E7600888864 /* Main.storyboard */; };
 		B52722331DBB8E7600888864 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722211DBB8E7600888864 /* MainVC.m */; };
-		B52722381DBB8FA600888864 /* ResultImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722361DBB8FA600888864 /* ResultImageCell.m */; };
-		B52722391DBB8FA600888864 /* ResultImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52722371DBB8FA600888864 /* ResultImageCell.xib */; };
 		B527223C1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = B527223B1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m */; };
 		B52722401DBBB0A200888864 /* SeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B527223F1DBBB0A200888864 /* SeparatorView.m */; };
 		B52722421DBBB13600888864 /* SeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52722411DBBB13600888864 /* SeparatorView.xib */; };
@@ -33,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56AB294E1DBCA7A1002C2FB9 /* ResultImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultImageCell.h; sourceTree = "<group>"; };
+		56AB294F1DBCA7A1002C2FB9 /* ResultImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultImageCell.m; sourceTree = "<group>"; };
+		56AB29501DBCA7A1002C2FB9 /* ResultImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultImageCell.xib; sourceTree = "<group>"; };
 		B52721FE1DBB8E7600888864 /* UIBarButtonItem+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Localization.h"; sourceTree = "<group>"; };
 		B52721FF1DBB8E7600888864 /* UIBarButtonItem+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Localization.m"; sourceTree = "<group>"; };
 		B52722001DBB8E7600888864 /* UIButton+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Localization.h"; sourceTree = "<group>"; };
@@ -62,9 +65,6 @@
 		B52722201DBB8E7600888864 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		B52722211DBB8E7600888864 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		B52722341DBB8EAF00888864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B52722351DBB8FA600888864 /* ResultImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultImageCell.h; path = "../../../../../../untitled folder/ImageProcessor/ViewControllers/Main/MainVC/ResultImageCell/ResultImageCell.h"; sourceTree = "<group>"; };
-		B52722361DBB8FA600888864 /* ResultImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultImageCell.m; path = "../../../../../../untitled folder/ImageProcessor/ViewControllers/Main/MainVC/ResultImageCell/ResultImageCell.m"; sourceTree = "<group>"; };
-		B52722371DBB8FA600888864 /* ResultImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ResultImageCell.xib; path = "../../../../../../untitled folder/ImageProcessor/ViewControllers/Main/MainVC/ResultImageCell/ResultImageCell.xib"; sourceTree = "<group>"; };
 		B527223A1DBB8FDD00888864 /* NSIndexSet+IndexPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+IndexPaths.h"; sourceTree = "<group>"; };
 		B527223B1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+IndexPaths.m"; sourceTree = "<group>"; };
 		B527223E1DBBB0A200888864 /* SeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorView.h; sourceTree = "<group>"; };
@@ -197,9 +197,9 @@
 		B52722221DBB8E7600888864 /* ResultImageCell */ = {
 			isa = PBXGroup;
 			children = (
-				B52722351DBB8FA600888864 /* ResultImageCell.h */,
-				B52722361DBB8FA600888864 /* ResultImageCell.m */,
-				B52722371DBB8FA600888864 /* ResultImageCell.xib */,
+				56AB294E1DBCA7A1002C2FB9 /* ResultImageCell.h */,
+				56AB294F1DBCA7A1002C2FB9 /* ResultImageCell.m */,
+				56AB29501DBCA7A1002C2FB9 /* ResultImageCell.xib */,
 			);
 			path = ResultImageCell;
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 		B529731C1DB8C0DE007DFAF6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Konstantin Mamaev";
 				TargetAttributes = {
 					B52973231DB8C0DE007DFAF6 = {
@@ -298,11 +298,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B527222D1DBB8E7600888864 /* LaunchScreen.storyboard in Resources */,
-				B52722391DBB8FA600888864 /* ResultImageCell.xib in Resources */,
 				B52722421DBBB13600888864 /* SeparatorView.xib in Resources */,
 				B52722321DBB8E7600888864 /* Main.storyboard in Resources */,
 				B527222E1DBB8E7600888864 /* Localizable.strings in Resources */,
 				B527222C1DBB8E7600888864 /* Assets.xcassets in Resources */,
+				56AB29521DBCA7A1002C2FB9 /* ResultImageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +323,7 @@
 				B52722491DBC91A200888864 /* FileRoutines.m in Sources */,
 				B52722291DBB8E7600888864 /* UIColor+HexString.m in Sources */,
 				B52722251DBB8E7600888864 /* UILabel+Localization.m in Sources */,
-				B52722381DBB8FA600888864 /* ResultImageCell.m in Sources */,
+				56AB29511DBCA7A1002C2FB9 /* ResultImageCell.m in Sources */,
 				B52722331DBB8E7600888864 /* MainVC.m in Sources */,
 				B527222F1DBB8E7600888864 /* main.m in Sources */,
 				B527223C1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m in Sources */,
@@ -349,8 +349,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -393,8 +395,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

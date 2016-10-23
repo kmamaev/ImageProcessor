@@ -3,7 +3,7 @@
 
 @implementation UIImage (Filters)
 
-- (UIImage *)imageRotatedByNintyDegrees {
+- (UIImage *)imageRotatedByNinetyDegrees {
     CGSize resultSize = (CGSize){self.size.height, self.size.width};
     UIGraphicsBeginImageContext(resultSize);
     CGContextRef context = UIGraphicsGetCurrentContext();

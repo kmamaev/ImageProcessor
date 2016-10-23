@@ -3,7 +3,7 @@
 
 @interface UIImage (Filters)
 
-- (UIImage *)imageRotatedByNintyDegrees;
+- (UIImage *)imageRotatedByNinetyDegrees;
 
 - (UIImage *)imageWithInvertedColors;
 

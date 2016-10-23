@@ -1,8 +1,13 @@
 #import "FileRoutines.h"
 
 
+static NSString *docPath = nil;
+
+
 NSString *documentsPath() {
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = path.firstObject;
-    return documentsPath;
+    if (!docPath) {
+        NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        docPath = path.firstObject;
+    }
+    return docPath;
 }

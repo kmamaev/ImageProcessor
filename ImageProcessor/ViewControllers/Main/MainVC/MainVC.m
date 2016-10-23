@@ -133,17 +133,11 @@ static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
 }
 
 - (void)takePhotoAction {
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.delegate = self;
-    imagePickerController.sourceType =  UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:imagePickerController animated:YES completion:nil];
+    [self openImagePickerWithType:UIImagePickerControllerSourceTypeCamera];
 }
 
 - (void)photoLibraryAction {
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.delegate = self;
-    imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentViewController:imagePickerController animated:YES completion:nil];
+    [self openImagePickerWithType:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
 - (void)saveInGalleryImage:(UIImage *)image {
@@ -155,7 +149,7 @@ static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
 }
 
 - (IBAction)rotateButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.imageService.sourceImage imageRotatedByNintyDegrees];
+    UIImage *filteredImage = [self.imageService.sourceImage imageRotatedByNinetyDegrees];
     [self.imageService addResultImage:filteredImage];
 }
 
@@ -247,6 +241,13 @@ static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
 - (void)updateChooseImageButtonState {
     BOOL needShowChooseImageButton = self.imageService.sourceImage == nil;
     self.chooseImageButton.hidden = !needShowChooseImageButton;
+}
+
+- (void)openImagePickerWithType:(UIImagePickerControllerSourceType)pickerType {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.sourceType = pickerType;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
 }
 
 #pragma mark - KVO implementation

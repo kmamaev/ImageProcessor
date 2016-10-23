@@ -24,7 +24,9 @@ static void *const _kvoContext = (void *)&_kvoContext;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *filterButtons;
 @property (strong, nonatomic) IBOutlet UIImageView *sourceImageView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIButton *chooseImageButton;
 
+@property (nonatomic) UIImage *sourceImage;
 @property (nonatomic, copy) NSArray<UIImage *> *resultImages;
 @end
 
@@ -48,15 +50,26 @@ static void *const _kvoContext = (void *)&_kvoContext;
     [self removeObserver:self forKeyPath:NSStringFromSelector(@selector(resultImages)) context:_kvoContext];
 }
 
+#pragma mark - Accessors
+
+- (void)setSourceImage:(UIImage *)sourceImage {
+    _sourceImage = sourceImage;
+    
+    self.sourceImageView.image = sourceImage;
+    [self updateFilterButtonsStates];
+    [self updateChooseImageButtonState];
+}
+
 #pragma mark - ViewController's lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self hideInvisibleViews];
-    [self configureButtons];
     [self configureSourceImageTapRecognizer];
     [self configureTableView];
+    [self configureSourceImage];
+    [self configureChooseImageButton];
 }
 
 #pragma mark - Configuration
@@ -64,12 +77,6 @@ static void *const _kvoContext = (void *)&_kvoContext;
 - (void)hideInvisibleViews {
     for (UIView *view in self.invisibleViews) {
         view.backgroundColor = [UIColor clearColor];
-    }
-}
-
-- (void)configureButtons {
-    for (UIButton *button in self.filterButtons) {
-        button.backgroundColor = [UIColor buttonColor];
     }
 }
 
@@ -97,9 +104,25 @@ static void *const _kvoContext = (void *)&_kvoContext;
     self.tableView.backgroundView = label;
 }
 
+- (void)configureSourceImage {
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentPath = path.firstObject;
+    NSString *sourceImagePath = [documentPath stringByAppendingPathComponent:@"source.png"];
+    UIImage *storedSourceImage = [UIImage imageWithContentsOfFile:sourceImagePath];
+    self.sourceImage = storedSourceImage;
+}
+
+- (void)configureChooseImageButton {
+    self.chooseImageButton.backgroundColor = [UIColor buttonColor];
+}
+
 #pragma mark - Actions
 
 - (void)sourceImageViewTapped:(UITapGestureRecognizer *)sender {
+    [self chooseImageAction];
+}
+
+- (void)chooseImageAction {
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil
         preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -141,27 +164,31 @@ static void *const _kvoContext = (void *)&_kvoContext;
 }
 
 - (void)useAsSourceImage:(UIImage *)image {
-    self.sourceImageView.image = image;
+    self.sourceImage = image;
 }
 
 - (IBAction)rotateButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.sourceImageView.image imageRotatedByNintyDegrees];
+    UIImage *filteredImage = [self.sourceImage imageRotatedByNintyDegrees];
     [self addResultImage:filteredImage];
 }
 
 - (IBAction)monochromeButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.sourceImageView.image monochromeImage];
+    UIImage *filteredImage = [self.sourceImage monochromeImage];
     [self addResultImage:filteredImage];
 }
 
 - (IBAction)invertColorButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.sourceImageView.image imageWithInvertedColors];
+    UIImage *filteredImage = [self.sourceImage imageWithInvertedColors];
     [self addResultImage:filteredImage];
 }
 
 - (IBAction)mirrorImageButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.sourceImageView.image imageMirroredHorizontally];
+    UIImage *filteredImage = [self.sourceImage imageMirroredHorizontally];
     [self addResultImage:filteredImage];
+}
+
+- (IBAction)chooseImageButtonTapped:(UIButton *)sender {
+    [self chooseImageAction];
 }
 
 #pragma mark - UIImagePickerControllerDelegate implementation
@@ -170,7 +197,7 @@ static void *const _kvoContext = (void *)&_kvoContext;
     editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    self.sourceImageView.image = image;
+    self.sourceImage = image;
 }
 
 #pragma mark - UITableViewDataSource implementation
@@ -223,6 +250,19 @@ static void *const _kvoContext = (void *)&_kvoContext;
 - (void)addResultImage:(UIImage *)image {
     NSMutableArray *resultImagesProxy = [self mutableArrayValueForKey:NSStringFromSelector(@selector(resultImages))];
     [resultImagesProxy insertObject:image atIndex:0];
+}
+
+- (void)updateFilterButtonsStates {
+    BOOL needDisableFilters = self.sourceImage == nil;
+    for (UIButton *button in self.filterButtons) {
+        button.enabled = !needDisableFilters;
+        button.backgroundColor = needDisableFilters ? [UIColor grayColor] : [UIColor buttonColor];
+    }
+}
+
+- (void)updateChooseImageButtonState {
+    BOOL needShowChooseImageButton = self.sourceImage == nil;
+    self.chooseImageButton.hidden = !needShowChooseImageButton;
 }
 
 #pragma mark - KVO implementation

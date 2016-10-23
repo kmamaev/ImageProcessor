@@ -28,11 +28,28 @@
                                                 <rect key="frame" x="0.0" y="5.5" width="148" height="200"/>
                                                 <gestureRecognizers/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dn8-YI-nwp" userLabel="Choose Image Button">
+                                                <rect key="frame" x="0.0" y="89" width="148" height="34"/>
+                                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="@Choose Image">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.ChooseImage"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="chooseImageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yKS-Ub-fdh"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="dn8-YI-nwp" secondAttribute="trailing" id="5sx-6h-oyd"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mZb-aO-6aH" secondAttribute="trailing" id="7ui-zN-Q1d"/>
                                             <constraint firstItem="mZb-aO-6aH" firstAttribute="centerY" secondItem="1r3-sH-61N" secondAttribute="centerY" id="C2x-hV-giZ"/>
+                                            <constraint firstItem="dn8-YI-nwp" firstAttribute="centerY" secondItem="1r3-sH-61N" secondAttribute="centerY" id="Cam-pT-whV"/>
+                                            <constraint firstItem="dn8-YI-nwp" firstAttribute="leading" secondItem="1r3-sH-61N" secondAttribute="leading" id="MC1-Za-BCS"/>
                                             <constraint firstItem="mZb-aO-6aH" firstAttribute="centerX" secondItem="1r3-sH-61N" secondAttribute="centerX" id="mA1-0K-nAn"/>
                                             <constraint firstItem="mZb-aO-6aH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1r3-sH-61N" secondAttribute="leading" id="nKX-sS-pI7"/>
                                             <constraint firstItem="mZb-aO-6aH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1r3-sH-61N" secondAttribute="top" id="qgg-ub-umS"/>
@@ -180,6 +197,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="chooseImageButton" destination="dn8-YI-nwp" id="eh3-kW-Ogg"/>
                         <outlet property="sourceImageView" destination="mZb-aO-6aH" id="anj-a0-Oq3"/>
                         <outlet property="tableView" destination="ULB-fd-m08" id="cPp-kA-BjC"/>
                         <outletCollection property="invisibleViews" destination="MWS-OU-5dX" id="LHJ-Bb-dab"/>

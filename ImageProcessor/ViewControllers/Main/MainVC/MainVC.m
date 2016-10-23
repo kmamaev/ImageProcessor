@@ -3,6 +3,9 @@
 // Views
 #import "ResultImageCell.h"
 
+// Services
+#import "ImageService.h"
+
 // Utils
 #import "UIColor+ImageProcessorConstants.h"
 #import "LocalizationRoutines.h"
@@ -26,6 +29,8 @@ static void *const _kvoContext = (void *)&_kvoContext;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIButton *chooseImageButton;
 
+@property (nonatomic) ImageService *imageService;
+
 @property (nonatomic) UIImage *sourceImage;
 @property (nonatomic, copy) NSArray<UIImage *> *resultImages;
 @end
@@ -40,6 +45,7 @@ static void *const _kvoContext = (void *)&_kvoContext;
     if (self) {
         _resultImages = [NSArray array];
         [self addObserver:self forKeyPath:NSStringFromSelector(@selector(resultImages)) options:0 context:_kvoContext];
+        _imageService = [[ImageService alloc] init];
     }
     return self;
 }
@@ -105,11 +111,7 @@ static void *const _kvoContext = (void *)&_kvoContext;
 }
 
 - (void)configureSourceImage {
-    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentPath = path.firstObject;
-    NSString *sourceImagePath = [documentPath stringByAppendingPathComponent:@"source.png"];
-    UIImage *storedSourceImage = [UIImage imageWithContentsOfFile:sourceImagePath];
-    self.sourceImage = storedSourceImage;
+    self.sourceImage = self.imageService.sourceImage;
 }
 
 - (void)configureChooseImageButton {
@@ -164,7 +166,7 @@ static void *const _kvoContext = (void *)&_kvoContext;
 }
 
 - (void)useAsSourceImage:(UIImage *)image {
-    self.sourceImage = image;
+    [self applyAndStoreSourceImage:image];
 }
 
 - (IBAction)rotateButtonTapped:(UIButton *)sender {
@@ -197,7 +199,7 @@ static void *const _kvoContext = (void *)&_kvoContext;
     editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    self.sourceImage = image;
+    [self applyAndStoreSourceImage:image];
 }
 
 #pragma mark - UITableViewDataSource implementation
@@ -263,6 +265,11 @@ static void *const _kvoContext = (void *)&_kvoContext;
 - (void)updateChooseImageButtonState {
     BOOL needShowChooseImageButton = self.sourceImage == nil;
     self.chooseImageButton.hidden = !needShowChooseImageButton;
+}
+
+- (void)applyAndStoreSourceImage:(UIImage *)image {
+    self.sourceImage = image;
+    [self.imageService storeAsSourceImage:image];
 }
 
 #pragma mark - KVO implementation

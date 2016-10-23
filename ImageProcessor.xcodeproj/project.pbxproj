@@ -28,6 +28,8 @@
 		B527223C1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = B527223B1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m */; };
 		B52722401DBBB0A200888864 /* SeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B527223F1DBBB0A200888864 /* SeparatorView.m */; };
 		B52722421DBBB13600888864 /* SeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52722411DBBB13600888864 /* SeparatorView.xib */; };
+		B52722461DBC8BD400888864 /* ImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722451DBC8BD400888864 /* ImageService.m */; };
+		B52722491DBC91A200888864 /* FileRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722481DBC91A200888864 /* FileRoutines.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,10 @@
 		B527223E1DBBB0A200888864 /* SeparatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeparatorView.h; sourceTree = "<group>"; };
 		B527223F1DBBB0A200888864 /* SeparatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeparatorView.m; sourceTree = "<group>"; };
 		B52722411DBBB13600888864 /* SeparatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeparatorView.xib; sourceTree = "<group>"; };
+		B52722441DBC8BD400888864 /* ImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageService.h; sourceTree = "<group>"; };
+		B52722451DBC8BD400888864 /* ImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageService.m; sourceTree = "<group>"; };
+		B52722471DBC91A200888864 /* FileRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileRoutines.h; sourceTree = "<group>"; };
+		B52722481DBC91A200888864 /* FileRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileRoutines.m; sourceTree = "<group>"; };
 		B52973241DB8C0DE007DFAF6 /* ImageProcessor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +127,7 @@
 				B52722111DBB8E7600888864 /* Resources */,
 				B52722151DBB8E7600888864 /* Supporting Files */,
 				B52722171DBB8E7600888864 /* Utils */,
+				B52722431DBC8BB200888864 /* Services */,
 				B527221C1DBB8E7600888864 /* ViewControllers */,
 				B527223D1DBBB08300888864 /* Views */,
 			);
@@ -154,6 +161,8 @@
 				B527221B1DBB8E7600888864 /* UIImage+Filters.m */,
 				B527223A1DBB8FDD00888864 /* NSIndexSet+IndexPaths.h */,
 				B527223B1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m */,
+				B52722471DBC91A200888864 /* FileRoutines.h */,
+				B52722481DBC91A200888864 /* FileRoutines.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -203,6 +212,15 @@
 				B52722411DBBB13600888864 /* SeparatorView.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B52722431DBC8BB200888864 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B52722441DBC8BD400888864 /* ImageService.h */,
+				B52722451DBC8BD400888864 /* ImageService.m */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B529731B1DB8C0DE007DFAF6 = {
@@ -302,12 +320,14 @@
 				B52722241DBB8E7600888864 /* UIButton+Localization.m in Sources */,
 				B52722231DBB8E7600888864 /* UIBarButtonItem+Localization.m in Sources */,
 				B527222A1DBB8E7600888864 /* AppDelegate.m in Sources */,
+				B52722491DBC91A200888864 /* FileRoutines.m in Sources */,
 				B52722291DBB8E7600888864 /* UIColor+HexString.m in Sources */,
 				B52722251DBB8E7600888864 /* UILabel+Localization.m in Sources */,
 				B52722381DBB8FA600888864 /* ResultImageCell.m in Sources */,
 				B52722331DBB8E7600888864 /* MainVC.m in Sources */,
 				B527222F1DBB8E7600888864 /* main.m in Sources */,
 				B527223C1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m in Sources */,
+				B52722461DBC8BD400888864 /* ImageService.m in Sources */,
 				B52722261DBB8E7600888864 /* UINavigationItem+Localization.m in Sources */,
 				B52722401DBBB0A200888864 /* SeparatorView.m in Sources */,
 			);

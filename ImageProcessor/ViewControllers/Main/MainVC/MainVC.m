@@ -23,11 +23,11 @@ static void *const _kvoContext = (void *)&_kvoContext;
         UITableViewDataSource,
         UITableViewDelegate
     >
-@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *invisibleViews;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *filterButtons;
-@property (strong, nonatomic) IBOutlet UIImageView *sourceImageView;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIButton *chooseImageButton;
+@property (nonatomic) IBOutletCollection(UIView) NSArray *invisibleViews;
+@property (nonatomic) IBOutletCollection(UIButton) NSArray *filterButtons;
+@property (nonatomic) IBOutlet UIImageView *sourceImageView;
+@property (nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) IBOutlet UIButton *chooseImageButton;
 
 @property (nonatomic) ImageService *imageService;
 
@@ -44,8 +44,8 @@ static void *const _kvoContext = (void *)&_kvoContext;
     self = [super initWithCoder:aDecoder];
     if (self) {
         _resultImages = [NSArray array];
-        [self addObserver:self forKeyPath:NSStringFromSelector(@selector(resultImages)) options:0 context:_kvoContext];
         _imageService = [[ImageService alloc] init];
+        [self addObserver:self forKeyPath:NSStringFromSelector(@selector(resultImages)) options:0 context:_kvoContext];
     }
     return self;
 }
@@ -71,16 +71,16 @@ static void *const _kvoContext = (void *)&_kvoContext;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self hideInvisibleViews];
-    [self configureSourceImageTapRecognizer];
+    [self configureInvisibleViews];
     [self configureTableView];
+    [self configureSourceImageTapRecognizer];
     [self configureSourceImage];
     [self configureChooseImageButton];
 }
 
 #pragma mark - Configuration
 
-- (void)hideInvisibleViews {
+- (void)configureInvisibleViews {
     for (UIView *view in self.invisibleViews) {
         view.backgroundColor = [UIColor clearColor];
     }

@@ -6,8 +6,8 @@
 
 
 @interface SeparatorView ()
-@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *boundViews;
-@property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *boundHeights;
+@property (nonatomic) IBOutletCollection(UIView) NSArray *boundViews;
+@property (nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *boundHeights;
 @end
 
 

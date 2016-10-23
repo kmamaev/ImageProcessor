@@ -168,6 +168,11 @@ static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
     [self.imageService addResultImage:filteredImage];
 }
 
+- (IBAction)mirrorHalvesButtonTapped:(UIButton *)sender {
+    UIImage *filteredImage = [self.imageService.sourceImage imageWithMirroredRightPart];
+    [self.imageService addResultImage:filteredImage];
+}
+
 - (IBAction)chooseImageButtonTapped:(UIButton *)sender {
     [self chooseImageAction];
 }

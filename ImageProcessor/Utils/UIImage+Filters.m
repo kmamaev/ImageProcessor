@@ -99,4 +99,30 @@
     return resultImage;
 }
 
+- (UIImage *)imageWithMirroredRightPart {
+    UIGraphicsBeginImageContext(self.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    // Draw left part not mirrored
+    CGContextTranslateCTM(context, 0, self.size.height);
+    CGContextScaleCTM(context, 1.0f, -1.0f);
+    CGRect leftPartRect = (CGRect){0, 0, self.size.width, self.size.height};
+    CGContextSaveGState(context);
+    CGContextClipToRect(context, (CGRect){0, 0, self.size.width/2, self.size.height});
+    CGContextDrawImage(context, leftPartRect, self.CGImage);
+    CGContextRestoreGState(context);
+
+    // Draw right part mirrored
+    CGContextTranslateCTM(context, self.size.width, 0);
+    CGContextScaleCTM(context, -1.0f, 1.0f);
+    CGRect rightPartRect = (CGRect){0, 0, self.size.width, self.size.height};
+    CGContextClipToRect(context, (CGRect){0, 0, self.size.width/2, self.size.height});
+    CGContextDrawImage(context, rightPartRect, self.CGImage);
+
+    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return resultImage;
+}
+
 @end

@@ -8,6 +8,7 @@
 "Main.Button.InvertColors" = "Invert Colors";
 "Main.Button.MirrorImage" = "Mirror Image";
 "Main.Button.ChooseImage" = "Choose Image";
+"Main.Button.MirrorHalves" = "Mirror Halves";
 "Main.Action.TakePhoto" = "Take Photo";
 "Main.Action.PhotoLibrary" = "Photo Library";
 "Main.Action.SaveImage" = "Save Image";

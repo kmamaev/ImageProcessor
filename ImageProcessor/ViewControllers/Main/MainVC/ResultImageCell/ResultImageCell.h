@@ -3,6 +3,9 @@
 
 @interface ResultImageCell : UITableViewCell
 
-- (void)configureWithImage:(UIImage *)image;
+@property (nonatomic, readonly) NSURL *resultImageURL;
+@property (nonatomic, readonly) UIImage *resultImage;
+
+- (void)configureWithImageURL:(NSURL *)imageURL;
 
 @end

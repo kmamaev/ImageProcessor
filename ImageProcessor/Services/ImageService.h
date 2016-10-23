@@ -3,8 +3,13 @@
 
 @interface ImageService : NSObject
 
-- (void)storeAsSourceImage:(UIImage *)image;
+@property (nonatomic, readonly) UIImage *sourceImage; // KVO-compatible
+@property (nonatomic, readonly) NSArray<NSURL *> *resultImagesURLs; // KVO-compatible
 
-- (UIImage *)sourceImage;
+- (void)updateSourceImageWithImage:(UIImage *)image;
+
+- (void)addResultImage:(UIImage *)image;
+
+- (void)deleteResultImageWithURL:(NSURL *)imageURL;
 
 @end

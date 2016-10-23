@@ -15,6 +15,8 @@
 
 static NSString *const _resultImageCellReuseId = @"resultImageCellReuseId";
 static void *const _kvoContext = (void *)&_kvoContext;
+static NSString *const _resultImagesKeyPath = @"imageService.resultImagesURLs";
+static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
 
 
 @interface MainVC () <
@@ -30,9 +32,6 @@ static void *const _kvoContext = (void *)&_kvoContext;
 @property (nonatomic) IBOutlet UIButton *chooseImageButton;
 
 @property (nonatomic) ImageService *imageService;
-
-@property (nonatomic) UIImage *sourceImage;
-@property (nonatomic, copy) NSArray<UIImage *> *resultImages;
 @end
 
 
@@ -43,9 +42,7 @@ static void *const _kvoContext = (void *)&_kvoContext;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _resultImages = [NSArray array];
         _imageService = [[ImageService alloc] init];
-        [self addObserver:self forKeyPath:NSStringFromSelector(@selector(resultImages)) options:0 context:_kvoContext];
     }
     return self;
 }
@@ -53,17 +50,8 @@ static void *const _kvoContext = (void *)&_kvoContext;
 #pragma mark - Deallocation
 
 - (void)dealloc {
-    [self removeObserver:self forKeyPath:NSStringFromSelector(@selector(resultImages)) context:_kvoContext];
-}
-
-#pragma mark - Accessors
-
-- (void)setSourceImage:(UIImage *)sourceImage {
-    _sourceImage = sourceImage;
-    
-    self.sourceImageView.image = sourceImage;
-    [self updateFilterButtonsStates];
-    [self updateChooseImageButtonState];
+    [self removeObserver:self forKeyPath:_resultImagesKeyPath context:_kvoContext];
+    [self removeObserver:self forKeyPath:_sourceImageKeyPath context:_kvoContext];
 }
 
 #pragma mark - ViewController's lifecycle
@@ -74,8 +62,8 @@ static void *const _kvoContext = (void *)&_kvoContext;
     [self configureInvisibleViews];
     [self configureTableView];
     [self configureSourceImageTapRecognizer];
-    [self configureSourceImage];
     [self configureChooseImageButton];
+    [self configureBindings];
 }
 
 #pragma mark - Configuration
@@ -110,12 +98,14 @@ static void *const _kvoContext = (void *)&_kvoContext;
     self.tableView.backgroundView = label;
 }
 
-- (void)configureSourceImage {
-    self.sourceImage = self.imageService.sourceImage;
-}
-
 - (void)configureChooseImageButton {
     self.chooseImageButton.backgroundColor = [UIColor buttonColor];
+}
+
+- (void)configureBindings {
+    [self addObserver:self forKeyPath:_resultImagesKeyPath options:0 context:_kvoContext];
+    [self addObserver:self forKeyPath:_sourceImageKeyPath options:
+        NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:_kvoContext];
 }
 
 #pragma mark - Actions
@@ -156,37 +146,32 @@ static void *const _kvoContext = (void *)&_kvoContext;
     [self presentViewController:imagePickerController animated:YES completion:nil];
 }
 
-- (void)saveImage:(UIImage *)image {
+- (void)saveInGalleryImage:(UIImage *)image {
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 
-- (void)deleteImage:(UIImage *)image {
-    NSMutableArray *resultImagesProxy = [self mutableArrayValueForKey:NSStringFromSelector(@selector(resultImages))];
-    [resultImagesProxy removeObject:image];
-}
-
-- (void)useAsSourceImage:(UIImage *)image {
-    [self applyAndStoreSourceImage:image];
+- (void)deleteImageWithURL:(NSURL *)imageURL {
+    [self.imageService deleteResultImageWithURL:imageURL];
 }
 
 - (IBAction)rotateButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.sourceImage imageRotatedByNintyDegrees];
-    [self addResultImage:filteredImage];
+    UIImage *filteredImage = [self.imageService.sourceImage imageRotatedByNintyDegrees];
+    [self.imageService addResultImage:filteredImage];
 }
 
 - (IBAction)monochromeButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.sourceImage monochromeImage];
-    [self addResultImage:filteredImage];
+    UIImage *filteredImage = [self.imageService.sourceImage monochromeImage];
+    [self.imageService addResultImage:filteredImage];
 }
 
 - (IBAction)invertColorButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.sourceImage imageWithInvertedColors];
-    [self addResultImage:filteredImage];
+    UIImage *filteredImage = [self.imageService.sourceImage imageWithInvertedColors];
+    [self.imageService addResultImage:filteredImage];
 }
 
 - (IBAction)mirrorImageButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.sourceImage imageMirroredHorizontally];
-    [self addResultImage:filteredImage];
+    UIImage *filteredImage = [self.imageService.sourceImage imageMirroredHorizontally];
+    [self.imageService addResultImage:filteredImage];
 }
 
 - (IBAction)chooseImageButtonTapped:(UIButton *)sender {
@@ -199,13 +184,13 @@ static void *const _kvoContext = (void *)&_kvoContext;
     editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self applyAndStoreSourceImage:image];
+    [self.imageService updateSourceImageWithImage:image];
 }
 
 #pragma mark - UITableViewDataSource implementation
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSUInteger resultsCount = self.resultImages.count;
+    NSUInteger resultsCount = self.imageService.resultImagesURLs.count;
     self.tableView.backgroundView.hidden = resultsCount > 0;
     return resultsCount;
 }
@@ -213,8 +198,8 @@ static void *const _kvoContext = (void *)&_kvoContext;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ResultImageCell *cell = [tableView dequeueReusableCellWithIdentifier:_resultImageCellReuseId
         forIndexPath:indexPath];
-    UIImage *image = self.resultImages[indexPath.row];
-    [cell configureWithImage:image];
+    NSURL *imageURL = self.imageService.resultImagesURLs[indexPath.row];
+    [cell configureWithImageURL:imageURL];
 
     return cell;
 }
@@ -224,8 +209,10 @@ static void *const _kvoContext = (void *)&_kvoContext;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    UIImage *chosenImage = self.resultImages[indexPath.row];
-    
+    NSURL *chosenImageURL = self.imageService.resultImagesURLs[indexPath.row];
+    ResultImageCell *resultImageCell = [tableView cellForRowAtIndexPath:indexPath];
+    UIImage *chosenImage = resultImageCell.resultImage;
+
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil
         preferredStyle:UIAlertControllerStyleActionSheet];
     
@@ -233,15 +220,15 @@ static void *const _kvoContext = (void *)&_kvoContext;
         handler:nil]];
     [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"Main.Action.SaveImage") style:UIAlertActionStyleDefault
         handler:^(UIAlertAction *action) {
-            [self saveImage:chosenImage];
+            [self saveInGalleryImage:chosenImage];
         }]];
     [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"Main.Action.UseAsSource") style:UIAlertActionStyleDefault
         handler:^(UIAlertAction *action) {
-            [self useAsSourceImage:chosenImage];
+            [self.imageService updateSourceImageWithImage:chosenImage];
         }]];
     [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"Main.Action.DeleteImage") style:UIAlertActionStyleDestructive
         handler:^(UIAlertAction *action) {
-            [self deleteImage:chosenImage];
+            [self deleteImageWithURL:chosenImageURL];
         }]];
     
     [self presentViewController:actionSheet animated:YES completion:nil];
@@ -249,13 +236,8 @@ static void *const _kvoContext = (void *)&_kvoContext;
 
 #pragma mark - Auxiliaries
 
-- (void)addResultImage:(UIImage *)image {
-    NSMutableArray *resultImagesProxy = [self mutableArrayValueForKey:NSStringFromSelector(@selector(resultImages))];
-    [resultImagesProxy insertObject:image atIndex:0];
-}
-
 - (void)updateFilterButtonsStates {
-    BOOL needDisableFilters = self.sourceImage == nil;
+    BOOL needDisableFilters = self.imageService.sourceImage == nil;
     for (UIButton *button in self.filterButtons) {
         button.enabled = !needDisableFilters;
         button.backgroundColor = needDisableFilters ? [UIColor grayColor] : [UIColor buttonColor];
@@ -263,13 +245,8 @@ static void *const _kvoContext = (void *)&_kvoContext;
 }
 
 - (void)updateChooseImageButtonState {
-    BOOL needShowChooseImageButton = self.sourceImage == nil;
+    BOOL needShowChooseImageButton = self.imageService.sourceImage == nil;
     self.chooseImageButton.hidden = !needShowChooseImageButton;
-}
-
-- (void)applyAndStoreSourceImage:(UIImage *)image {
-    self.sourceImage = image;
-    [self.imageService storeAsSourceImage:image];
 }
 
 #pragma mark - KVO implementation
@@ -278,40 +255,55 @@ static void *const _kvoContext = (void *)&_kvoContext;
     context:(void *)context
 {
     if (context == _kvoContext) {
-        NSIndexSet *indexes = change[NSKeyValueChangeIndexesKey];
-        NSNumber *changeKind = change[NSKeyValueChangeKindKey];
-        switch (changeKind.integerValue) {
-            case NSKeyValueChangeSetting:
-                [self.tableView reloadData];
-                break;
-            case NSKeyValueChangeInsertion: {
-                NSArray *indexPaths = [indexes indexPathsForSection:0];
-                [self.tableView beginUpdates];
-                [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
-                [self.tableView endUpdates];
-                break;
-            }
-            case NSKeyValueChangeRemoval: {
-                NSArray *indexPaths = [indexes indexPathsForSection:0];
-                [self.tableView beginUpdates];
-                [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-                [self.tableView endUpdates];
-                break;
-            }
-            case NSKeyValueChangeReplacement: {
-                NSArray *indexPaths = [indexes indexPathsForSection:0];
-                [self.tableView beginUpdates];
-                [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-                [self.tableView endUpdates];
-                break;
-            }
-            default:
-                break;
+        if ([keyPath isEqualToString:_resultImagesKeyPath]) {
+            [self handleChangeForResultImages:change];
+        }
+        else if ([keyPath isEqualToString:_sourceImageKeyPath]) {
+            [self handleChangeForSourceImage:change];
         }
     }
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
+}
+
+- (void)handleChangeForResultImages:(NSDictionary *)change {
+    NSIndexSet *indexes = change[NSKeyValueChangeIndexesKey];
+    NSNumber *changeKind = change[NSKeyValueChangeKindKey];
+    switch (changeKind.integerValue) {
+        case NSKeyValueChangeSetting:
+            [self.tableView reloadData];
+            break;
+        case NSKeyValueChangeInsertion: {
+            NSArray *indexPaths = [indexes indexPathsForSection:0];
+            [self.tableView beginUpdates];
+            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
+            [self.tableView endUpdates];
+            break;
+        }
+        case NSKeyValueChangeRemoval: {
+            NSArray *indexPaths = [indexes indexPathsForSection:0];
+            [self.tableView beginUpdates];
+            [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView endUpdates];
+            break;
+        }
+        case NSKeyValueChangeReplacement: {
+            NSArray *indexPaths = [indexes indexPathsForSection:0];
+            [self.tableView beginUpdates];
+            [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView endUpdates];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (void)handleChangeForSourceImage:(NSDictionary *__unused)change {
+    self.sourceImageView.image = self.imageService.sourceImage;
+    [self updateFilterButtonsStates];
+    [self updateChooseImageButtonState];
 }
 
 @end

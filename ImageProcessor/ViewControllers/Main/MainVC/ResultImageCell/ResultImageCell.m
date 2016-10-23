@@ -2,21 +2,26 @@
 
 
 @interface ResultImageCell ()
-@property (strong, nonatomic) IBOutlet UIImageView *resultImageView;
+@property (nonatomic) IBOutlet UIImageView *resultImageView;
+@property (nonatomic, readwrite) NSURL *resultImageURL;
 @end
 
 
 @implementation ResultImageCell
 
-#pragma mark - Awakening
+#pragma mark - Accessors
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (UIImage *)resultImage {
+    return self.resultImageView.image;
 }
 
 #pragma mark - Configuration
 
-- (void)configureWithImage:(UIImage *)image {
+- (void)configureWithImageURL:(NSURL *)imageURL {
+    self.resultImageURL = imageURL;
+
+    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage *image = [UIImage imageWithData:imageData];
     self.resultImageView.image = image;
 }
 

@@ -70,7 +70,7 @@
                                                             <action selector="rotateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vn8-df-hnW"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu0-RS-vjb" userLabel="Invert Colors Button">
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu0-RS-vjb" userLabel="Monochrome Button">
                                                         <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="@Monochrome">
@@ -81,19 +81,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="monochromeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TUY-at-VPa"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71G-k1-6Bn" userLabel="Mirror Image Button">
-                                                        <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <state key="normal" title="@Mirror Image">
-                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.MirrorImage"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="mirrorImageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fr1-ql-gTs"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVC-o5-Oh1" userLabel="Invert Colors Button">
@@ -107,6 +94,19 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="invertColorButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DKR-iB-2aU"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71G-k1-6Bn" userLabel="Mirror Image Button">
+                                                        <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" title="@Mirror Image">
+                                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.MirrorImage"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="mirrorImageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fr1-ql-gTs"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2E-B1-7CD" userLabel="Mirror Halves Button">
@@ -126,22 +126,79 @@
                                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="N2E-B1-7CD" secondAttribute="trailing" id="0qP-oU-AAV"/>
+                                                    <constraint firstItem="GVC-o5-Oh1" firstAttribute="top" secondItem="Hu0-RS-vjb" secondAttribute="bottom" constant="92" id="4vh-wZ-avy">
+                                                        <variation key="heightClass=compact" constant="8"/>
+                                                    </constraint>
+                                                    <constraint firstItem="71G-k1-6Bn" firstAttribute="top" secondItem="Zgv-JU-wLp" secondAttribute="bottom" constant="8" id="5rY-nq-GUn"/>
                                                     <constraint firstAttribute="bottom" secondItem="N2E-B1-7CD" secondAttribute="bottom" id="7b7-M1-wX6"/>
+                                                    <constraint firstItem="GVC-o5-Oh1" firstAttribute="width" secondItem="Zgv-JU-wLp" secondAttribute="width" id="8Yk-fd-i7Q"/>
+                                                    <constraint firstItem="N2E-B1-7CD" firstAttribute="width" secondItem="Zgv-JU-wLp" secondAttribute="width" id="CoS-S0-cGY"/>
                                                     <constraint firstItem="Zgv-JU-wLp" firstAttribute="leading" secondItem="kzj-am-6H0" secondAttribute="leading" id="FDP-Cc-YCQ"/>
                                                     <constraint firstItem="N2E-B1-7CD" firstAttribute="leading" secondItem="kzj-am-6H0" secondAttribute="leading" id="OBu-Iv-3xt"/>
+                                                    <constraint firstItem="Hu0-RS-vjb" firstAttribute="top" secondItem="kzj-am-6H0" secondAttribute="top" id="OfE-B5-KEI"/>
                                                     <constraint firstItem="Hu0-RS-vjb" firstAttribute="top" secondItem="Zgv-JU-wLp" secondAttribute="bottom" constant="8" id="Rkp-LD-dM9"/>
                                                     <constraint firstAttribute="trailing" secondItem="GVC-o5-Oh1" secondAttribute="trailing" id="TBb-mi-C4G"/>
                                                     <constraint firstAttribute="trailing" secondItem="71G-k1-6Bn" secondAttribute="trailing" id="WR3-4g-kVm"/>
+                                                    <constraint firstItem="71G-k1-6Bn" firstAttribute="width" secondItem="Zgv-JU-wLp" secondAttribute="width" id="Yt4-qH-VZb"/>
                                                     <constraint firstItem="Hu0-RS-vjb" firstAttribute="leading" secondItem="kzj-am-6H0" secondAttribute="leading" id="bDT-SM-KxW"/>
                                                     <constraint firstItem="GVC-o5-Oh1" firstAttribute="leading" secondItem="kzj-am-6H0" secondAttribute="leading" id="dam-43-Ulb"/>
+                                                    <constraint firstItem="Hu0-RS-vjb" firstAttribute="leading" secondItem="Zgv-JU-wLp" secondAttribute="trailing" constant="120" id="gKQ-0g-tYi">
+                                                        <variation key="heightClass=compact" constant="8"/>
+                                                    </constraint>
+                                                    <constraint firstItem="GVC-o5-Oh1" firstAttribute="leading" secondItem="71G-k1-6Bn" secondAttribute="trailing" constant="8" id="gwH-US-EZ0"/>
                                                     <constraint firstItem="N2E-B1-7CD" firstAttribute="top" secondItem="GVC-o5-Oh1" secondAttribute="bottom" constant="8" id="ibe-pF-seb"/>
+                                                    <constraint firstItem="N2E-B1-7CD" firstAttribute="top" secondItem="GVC-o5-Oh1" secondAttribute="bottom" constant="8" id="jfY-G7-W80">
+                                                        <variation key="heightClass=compact" constant="8"/>
+                                                    </constraint>
                                                     <constraint firstItem="71G-k1-6Bn" firstAttribute="leading" secondItem="kzj-am-6H0" secondAttribute="leading" id="lzC-hb-yNJ"/>
                                                     <constraint firstItem="GVC-o5-Oh1" firstAttribute="top" secondItem="71G-k1-6Bn" secondAttribute="bottom" constant="8" id="mpS-va-QyJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="Zgv-JU-wLp" secondAttribute="trailing" id="oyS-FJ-yMX"/>
                                                     <constraint firstItem="71G-k1-6Bn" firstAttribute="top" secondItem="Hu0-RS-vjb" secondAttribute="bottom" constant="8" id="p4g-6C-Gfl"/>
                                                     <constraint firstItem="Zgv-JU-wLp" firstAttribute="top" secondItem="kzj-am-6H0" secondAttribute="top" id="r2y-se-fao"/>
                                                     <constraint firstAttribute="trailing" secondItem="Hu0-RS-vjb" secondAttribute="trailing" id="uaw-LJ-b68"/>
+                                                    <constraint firstItem="Hu0-RS-vjb" firstAttribute="width" secondItem="Zgv-JU-wLp" secondAttribute="width" id="w5W-4N-Z1z"/>
+                                                    <constraint firstItem="N2E-B1-7CD" firstAttribute="centerX" secondItem="kzj-am-6H0" secondAttribute="centerX" id="wSG-PB-X3S"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="5rY-nq-GUn"/>
+                                                        <exclude reference="Yt4-qH-VZb"/>
+                                                        <exclude reference="CoS-S0-cGY"/>
+                                                        <exclude reference="jfY-G7-W80"/>
+                                                        <exclude reference="wSG-PB-X3S"/>
+                                                        <exclude reference="OfE-B5-KEI"/>
+                                                        <exclude reference="gKQ-0g-tYi"/>
+                                                        <exclude reference="w5W-4N-Z1z"/>
+                                                        <exclude reference="4vh-wZ-avy"/>
+                                                        <exclude reference="8Yk-fd-i7Q"/>
+                                                        <exclude reference="gwH-US-EZ0"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=compact">
+                                                    <mask key="constraints">
+                                                        <exclude reference="oyS-FJ-yMX"/>
+                                                        <include reference="5rY-nq-GUn"/>
+                                                        <exclude reference="WR3-4g-kVm"/>
+                                                        <include reference="Yt4-qH-VZb"/>
+                                                        <exclude reference="p4g-6C-Gfl"/>
+                                                        <exclude reference="0qP-oU-AAV"/>
+                                                        <include reference="CoS-S0-cGY"/>
+                                                        <exclude reference="OBu-Iv-3xt"/>
+                                                        <exclude reference="ibe-pF-seb"/>
+                                                        <include reference="jfY-G7-W80"/>
+                                                        <include reference="wSG-PB-X3S"/>
+                                                        <include reference="OfE-B5-KEI"/>
+                                                        <exclude reference="Rkp-LD-dM9"/>
+                                                        <exclude reference="bDT-SM-KxW"/>
+                                                        <include reference="gKQ-0g-tYi"/>
+                                                        <include reference="w5W-4N-Z1z"/>
+                                                        <include reference="4vh-wZ-avy"/>
+                                                        <include reference="8Yk-fd-i7Q"/>
+                                                        <exclude reference="dam-43-Ulb"/>
+                                                        <include reference="gwH-US-EZ0"/>
+                                                        <exclude reference="mpS-va-QyJ"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -234,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-309.375" y="39.08450704225352"/>
+            <point key="canvasLocation" x="-309.89505247376314" y="37.600000000000001"/>
         </scene>
     </scenes>
     <resources>

@@ -30,6 +30,8 @@
 		B52722421DBBB13600888864 /* SeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52722411DBBB13600888864 /* SeparatorView.xib */; };
 		B52722461DBC8BD400888864 /* ImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722451DBC8BD400888864 /* ImageService.m */; };
 		B52722491DBC91A200888864 /* FileRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722481DBC91A200888864 /* FileRoutines.m */; };
+		B559E5771DC46C1A0061D441 /* ImageStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = B559E5761DC46C1A0061D441 /* ImageStorageService.m */; };
+		B559E57A1DC46C600061D441 /* UIImage+Decompression.m in Sources */ = {isa = PBXBuildFile; fileRef = B559E5791DC46C600061D441 /* UIImage+Decompression.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,10 @@
 		B52722471DBC91A200888864 /* FileRoutines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileRoutines.h; sourceTree = "<group>"; };
 		B52722481DBC91A200888864 /* FileRoutines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileRoutines.m; sourceTree = "<group>"; };
 		B52973241DB8C0DE007DFAF6 /* ImageProcessor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageProcessor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B559E5751DC46C1A0061D441 /* ImageStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStorageService.h; sourceTree = "<group>"; };
+		B559E5761DC46C1A0061D441 /* ImageStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStorageService.m; sourceTree = "<group>"; };
+		B559E5781DC46C600061D441 /* UIImage+Decompression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Decompression.h"; sourceTree = "<group>"; };
+		B559E5791DC46C600061D441 /* UIImage+Decompression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Decompression.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +165,8 @@
 				B52722191DBB8E7600888864 /* UIColor+ImageProcessorConstants.m */,
 				B527221A1DBB8E7600888864 /* UIImage+Filters.h */,
 				B527221B1DBB8E7600888864 /* UIImage+Filters.m */,
+				B559E5781DC46C600061D441 /* UIImage+Decompression.h */,
+				B559E5791DC46C600061D441 /* UIImage+Decompression.m */,
 				B527223A1DBB8FDD00888864 /* NSIndexSet+IndexPaths.h */,
 				B527223B1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m */,
 				B52722471DBC91A200888864 /* FileRoutines.h */,
@@ -219,6 +227,8 @@
 			children = (
 				B52722441DBC8BD400888864 /* ImageService.h */,
 				B52722451DBC8BD400888864 /* ImageService.m */,
+				B559E5751DC46C1A0061D441 /* ImageStorageService.h */,
+				B559E5761DC46C1A0061D441 /* ImageStorageService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -324,9 +334,11 @@
 				B52722291DBB8E7600888864 /* UIColor+HexString.m in Sources */,
 				B52722251DBB8E7600888864 /* UILabel+Localization.m in Sources */,
 				56AB29511DBCA7A1002C2FB9 /* ResultImageCell.m in Sources */,
+				B559E5771DC46C1A0061D441 /* ImageStorageService.m in Sources */,
 				B52722331DBB8E7600888864 /* MainVC.m in Sources */,
 				B527222F1DBB8E7600888864 /* main.m in Sources */,
 				B527223C1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m in Sources */,
+				B559E57A1DC46C600061D441 /* UIImage+Decompression.m in Sources */,
 				B52722461DBC8BD400888864 /* ImageService.m in Sources */,
 				B52722261DBB8E7600888864 /* UINavigationItem+Localization.m in Sources */,
 				B52722401DBBB0A200888864 /* SeparatorView.m in Sources */,

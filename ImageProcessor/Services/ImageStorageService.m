@@ -6,6 +6,7 @@
 
 @interface ImageStorageService ()
 @property (nonatomic) NSOperationQueue *loadImageQueue;
+@property (atomic) NSCache<NSURL *, UIImage *> *imageCache;
 @end
 
 
@@ -17,6 +18,7 @@
     self = [super init];
     if (self) {
         _loadImageQueue = [[NSOperationQueue alloc] init];
+        _imageCache = [[NSCache alloc] init];
     }
     return self;
 }
@@ -36,10 +38,13 @@
 
 - (NSOperation *)loadImageWithURL:(NSURL *)imageURL completion:(void (^)(UIImage *image))completion {
     NSBlockOperation *__block loadImageOperation = [NSBlockOperation blockOperationWithBlock:^{
-            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-            UIImage *image = nil;
-            if (imageData) {
-                image = [[UIImage imageWithData:imageData] decompressedImage];
+            UIImage *image = [self.imageCache objectForKey:imageURL];
+            if (!image) {
+                NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                if (imageData) {
+                    image = [[UIImage imageWithData:imageData] decompressedImage];
+                    [self.imageCache setObject:image forKey:imageURL];
+                }
             }
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                     if (completion && !loadImageOperation.isCancelled) {

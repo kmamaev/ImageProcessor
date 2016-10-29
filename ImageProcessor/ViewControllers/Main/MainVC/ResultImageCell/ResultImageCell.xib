@@ -16,17 +16,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder_image" translatesAutoresizingMaskIntoConstraints="NO" id="uCP-Rs-Ep0" userLabel="Result Image View"/>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PbI-rV-LWt"/>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="PbI-rV-LWt" secondAttribute="trailing" constant="20" id="28J-tX-qz7"/>
                     <constraint firstItem="uCP-Rs-Ep0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="6tD-IG-Z6r"/>
                     <constraint firstItem="uCP-Rs-Ep0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="7v9-Iy-hTC"/>
                     <constraint firstItem="uCP-Rs-Ep0" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="KYh-uP-gcm"/>
+                    <constraint firstItem="PbI-rV-LWt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LMg-kb-KC9"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uCP-Rs-Ep0" secondAttribute="trailing" constant="8" id="P44-1Q-OXO"/>
+                    <constraint firstItem="PbI-rV-LWt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="TUa-PM-KvX"/>
                     <constraint firstItem="uCP-Rs-Ep0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jeX-7E-wzW"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uCP-Rs-Ep0" secondAttribute="bottom" constant="8" id="stY-tm-Uok"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="progressView" destination="PbI-rV-LWt" id="04n-ar-28M"/>
                 <outlet property="resultImageView" destination="uCP-Rs-Ep0" id="8AZ-p0-iEj"/>
             </connections>
             <point key="canvasLocation" x="-279" y="-260"/>

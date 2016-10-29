@@ -1,11 +1,12 @@
 #import <UIKit/UIKit.h>
 
+@class ResultImageVM;
+
 
 @interface ResultImageCell : UITableViewCell
 
-@property (nonatomic, readonly) NSURL *resultImageURL;
 @property (nonatomic, readonly) UIImage *resultImage;
 
-- (void)configureWithImageURL:(NSURL *)imageURL;
+- (void)configureWithResultImageVM:(ResultImageVM *)resultImageVM;
 
 @end

@@ -1,23 +1,27 @@
 #import "MainVC.h"
 
+// Services
+#import "ImageService.h"
+#import "ImageFilterService.h"
+
 // Views
 #import "ResultImageCell.h"
 
-// Services
-#import "ImageService.h"
+// ViewModels
+#import "ResultImageVM.h"
+#import "MainVM.h"
 
 // Utils
 #import "UIColor+ImageProcessorConstants.h"
 #import "LocalizationRoutines.h"
-#import "UIImage+Filters.h"
 #import "NSIndexSet+IndexPaths.h"
 
 
 static NSString *const _resultImageCellReuseId = @"resultImageCellReuseId";
 static void *const _kvoContext = (void *)&_kvoContext;
-static NSString *const _resultImagesKeyPath = @"imageService.resultImagesURLs";
-static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
-static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
+static NSString *const _resultImageVMsKeyPath = @"mainVM.resultImageVMs";
+static NSString *const _sourceImageKeyPath = @"mainVM.imageService.sourceImage";
+static NSString *const _sourceImageURLKeyPath = @"mainVM.imageService.sourceImageURL";
 
 
 @interface MainVC () <
@@ -31,8 +35,13 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
 @property (nonatomic) IBOutlet UIImageView *sourceImageView;
 @property (nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) IBOutlet UIButton *chooseImageButton;
+@property (nonatomic) IBOutlet UIButton *rotateButton;
+@property (nonatomic) IBOutlet UIButton *monochromeButton;
+@property (nonatomic) IBOutlet UIButton *mirrorImageButton;
+@property (nonatomic) IBOutlet UIButton *invertColorsButton;
+@property (nonatomic) IBOutlet UIButton *mirrorHalvesButton;
 
-@property (nonatomic) ImageService *imageService;
+@property (nonatomic) MainVM *mainVM;
 @end
 
 
@@ -43,7 +52,7 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _imageService = [[ImageService alloc] init];
+        _mainVM = [[MainVM alloc] initWithImageService:[[ImageService alloc] init]];
     }
     return self;
 }
@@ -51,7 +60,7 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
 #pragma mark - Deallocation
 
 - (void)dealloc {
-    [self removeObserver:self forKeyPath:_resultImagesKeyPath context:_kvoContext];
+    [self removeObserver:self forKeyPath:_resultImageVMsKeyPath context:_kvoContext];
     [self removeObserver:self forKeyPath:_sourceImageKeyPath context:_kvoContext];
     [self removeObserver:self forKeyPath:_sourceImageURLKeyPath context:_kvoContext];
 }
@@ -105,7 +114,7 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
 }
 
 - (void)configureBindings {
-    [self addObserver:self forKeyPath:_resultImagesKeyPath options:0 context:_kvoContext];
+    [self addObserver:self forKeyPath:_resultImageVMsKeyPath options:0 context:_kvoContext];
     [self addObserver:self forKeyPath:_sourceImageKeyPath options:
         NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:_kvoContext];
     [self addObserver:self forKeyPath:_sourceImageURLKeyPath options:
@@ -148,33 +157,27 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 
-- (void)deleteImageWithURL:(NSURL *)imageURL {
-    [self.imageService deleteResultImageWithURL:imageURL];
-}
+- (IBAction)filterButtonTapped:(UIButton *)sender {
+    ImageFilterTask *filterTask = nil;
+    UIImage *imageToFilter = self.mainVM.imageService.sourceImage;
+    
+    if (sender == self.rotateButton) {
+        filterTask = [self.imageFilterService rotateByNinetyDegreesWithImage:imageToFilter];
+    }
+    else if (sender == self.monochromeButton) {
+        filterTask = [self.imageFilterService makeMonochromeColorsWithImage:imageToFilter];
+    }
+    else if (sender == self.mirrorImageButton) {
+        filterTask = [self.imageFilterService mirrorHorizontallyWithImage:imageToFilter];
+    }
+    else if (sender == self.invertColorsButton) {
+        filterTask = [self.imageFilterService invertColorsWithImage:imageToFilter];
+    }
+    else if (sender == self.mirrorHalvesButton) {
+        filterTask = [self.imageFilterService mirrorRightPartWithImage:imageToFilter];
+    }
 
-- (IBAction)rotateButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.imageService.sourceImage imageRotatedByNinetyDegrees];
-    [self.imageService addResultImage:filteredImage];
-}
-
-- (IBAction)monochromeButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.imageService.sourceImage monochromeImage];
-    [self.imageService addResultImage:filteredImage];
-}
-
-- (IBAction)invertColorButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.imageService.sourceImage imageWithInvertedColors];
-    [self.imageService addResultImage:filteredImage];
-}
-
-- (IBAction)mirrorImageButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.imageService.sourceImage imageMirroredHorizontally];
-    [self.imageService addResultImage:filteredImage];
-}
-
-- (IBAction)mirrorHalvesButtonTapped:(UIButton *)sender {
-    UIImage *filteredImage = [self.imageService.sourceImage imageWithMirroredRightPart];
-    [self.imageService addResultImage:filteredImage];
+    [self.mainVM addImageFilterTask:filterTask];
 }
 
 - (IBAction)chooseImageButtonTapped:(UIButton *)sender {
@@ -187,13 +190,13 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
     editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    [self.imageService updateSourceImageWithImage:image];
+    [self.mainVM updateSourceImageWithImage:image];
 }
 
 #pragma mark - UITableViewDataSource implementation
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSUInteger resultsCount = self.imageService.resultImagesURLs.count;
+    NSUInteger resultsCount = self.mainVM.resultImageVMs.count;
     self.tableView.backgroundView.hidden = resultsCount > 0;
     return resultsCount;
 }
@@ -201,8 +204,8 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ResultImageCell *cell = [tableView dequeueReusableCellWithIdentifier:_resultImageCellReuseId
         forIndexPath:indexPath];
-    NSURL *imageURL = self.imageService.resultImagesURLs[indexPath.row];
-    [cell configureWithImageURL:imageURL];
+    ResultImageVM *resultImageVM = self.mainVM.resultImageVMs[indexPath.row];
+    [cell configureWithResultImageVM:resultImageVM];
 
     return cell;
 }
@@ -212,7 +215,7 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSURL *chosenImageURL = self.imageService.resultImagesURLs[indexPath.row];
+    ResultImageVM *chosenResultImageVM = self.mainVM.resultImageVMs[indexPath.row];
     ResultImageCell *resultImageCell = [tableView cellForRowAtIndexPath:indexPath];
     UIImage *chosenImage = resultImageCell.resultImage;
 
@@ -227,11 +230,11 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
         }]];
     [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"Main.Action.UseAsSource") style:UIAlertActionStyleDefault
         handler:^(UIAlertAction *action) {
-            [self.imageService updateSourceImageWithImage:chosenImage];
+            [self.mainVM updateSourceImageWithImage:chosenImage];
         }]];
     [actionSheet addAction:[UIAlertAction actionWithTitle:LS(@"Main.Action.DeleteImage") style:UIAlertActionStyleDestructive
         handler:^(UIAlertAction *action) {
-            [self deleteImageWithURL:chosenImageURL];
+            [self.mainVM deleteResultImageVM:chosenResultImageVM];
         }]];
     
     [self presentViewController:actionSheet animated:YES completion:nil];
@@ -240,7 +243,7 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
 #pragma mark - Auxiliaries
 
 - (void)updateFilterButtonsStates {
-    BOOL needDisableFilters = self.imageService.sourceImage == nil;
+    BOOL needDisableFilters = self.mainVM.imageService.sourceImage == nil;
     for (UIButton *button in self.filterButtons) {
         button.enabled = !needDisableFilters;
         button.backgroundColor = needDisableFilters ? [UIColor grayColor] : [UIColor buttonColor];
@@ -248,7 +251,7 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
 }
 
 - (void)updateChooseImageButtonState {
-    BOOL needShowChooseImageButton = self.imageService.sourceImageURL == nil;
+    BOOL needShowChooseImageButton = self.mainVM.imageService.sourceImageURL == nil;
     self.chooseImageButton.hidden = !needShowChooseImageButton;
 }
 
@@ -265,7 +268,7 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
     context:(void *)context
 {
     if (context == _kvoContext) {
-        if ([keyPath isEqualToString:_resultImagesKeyPath]) {
+        if ([keyPath isEqualToString:_resultImageVMsKeyPath]) {
             [self handleChangeForResultImages:change];
         }
         else if ([keyPath isEqualToString:_sourceImageKeyPath]) {
@@ -314,7 +317,7 @@ static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
 }
 
 - (void)handleChangeForSourceImage:(NSDictionary *__unused)change {
-    self.sourceImageView.image = self.imageService.sourceImage;
+    self.sourceImageView.image = self.mainVM.imageService.sourceImage;
     [self updateFilterButtonsStates];
 }
 

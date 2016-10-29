@@ -67,7 +67,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.Rotate"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="rotateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vn8-df-hnW"/>
+                                                            <action selector="filterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iFJ-aF-oF8"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu0-RS-vjb" userLabel="Monochrome Button">
@@ -80,7 +80,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.Monochrome"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="monochromeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TUY-at-VPa"/>
+                                                            <action selector="filterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="12I-TF-BIE"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVC-o5-Oh1" userLabel="Invert Colors Button">
@@ -93,7 +93,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.InvertColors"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="invertColorButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DKR-iB-2aU"/>
+                                                            <action selector="filterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N0Y-5t-VQ1"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71G-k1-6Bn" userLabel="Mirror Image Button">
@@ -106,7 +106,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.MirrorImage"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="mirrorImageButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fr1-ql-gTs"/>
+                                                            <action selector="filterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZbS-YQ-FoW"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2E-B1-7CD" userLabel="Mirror Halves Button">
@@ -119,7 +119,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="localizedNormalTitle" value="Main.Button.MirrorHalves"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="mirrorHalvesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pt4-0T-LNh"/>
+                                                            <action selector="filterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RXh-OV-yLQ"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -163,40 +163,40 @@
                                                     <mask key="constraints">
                                                         <exclude reference="5rY-nq-GUn"/>
                                                         <exclude reference="Yt4-qH-VZb"/>
-                                                        <exclude reference="CoS-S0-cGY"/>
-                                                        <exclude reference="jfY-G7-W80"/>
-                                                        <exclude reference="wSG-PB-X3S"/>
-                                                        <exclude reference="OfE-B5-KEI"/>
-                                                        <exclude reference="gKQ-0g-tYi"/>
-                                                        <exclude reference="w5W-4N-Z1z"/>
                                                         <exclude reference="4vh-wZ-avy"/>
                                                         <exclude reference="8Yk-fd-i7Q"/>
                                                         <exclude reference="gwH-US-EZ0"/>
+                                                        <exclude reference="OfE-B5-KEI"/>
+                                                        <exclude reference="gKQ-0g-tYi"/>
+                                                        <exclude reference="w5W-4N-Z1z"/>
+                                                        <exclude reference="CoS-S0-cGY"/>
+                                                        <exclude reference="jfY-G7-W80"/>
+                                                        <exclude reference="wSG-PB-X3S"/>
                                                     </mask>
                                                 </variation>
                                                 <variation key="heightClass=compact">
                                                     <mask key="constraints">
-                                                        <exclude reference="oyS-FJ-yMX"/>
                                                         <include reference="5rY-nq-GUn"/>
                                                         <exclude reference="WR3-4g-kVm"/>
                                                         <include reference="Yt4-qH-VZb"/>
                                                         <exclude reference="p4g-6C-Gfl"/>
+                                                        <include reference="4vh-wZ-avy"/>
+                                                        <include reference="8Yk-fd-i7Q"/>
+                                                        <exclude reference="dam-43-Ulb"/>
+                                                        <include reference="gwH-US-EZ0"/>
+                                                        <exclude reference="mpS-va-QyJ"/>
+                                                        <include reference="OfE-B5-KEI"/>
+                                                        <exclude reference="Rkp-LD-dM9"/>
+                                                        <exclude reference="bDT-SM-KxW"/>
+                                                        <include reference="gKQ-0g-tYi"/>
+                                                        <include reference="w5W-4N-Z1z"/>
                                                         <exclude reference="0qP-oU-AAV"/>
                                                         <include reference="CoS-S0-cGY"/>
                                                         <exclude reference="OBu-Iv-3xt"/>
                                                         <exclude reference="ibe-pF-seb"/>
                                                         <include reference="jfY-G7-W80"/>
                                                         <include reference="wSG-PB-X3S"/>
-                                                        <include reference="OfE-B5-KEI"/>
-                                                        <exclude reference="Rkp-LD-dM9"/>
-                                                        <exclude reference="bDT-SM-KxW"/>
-                                                        <include reference="gKQ-0g-tYi"/>
-                                                        <include reference="w5W-4N-Z1z"/>
-                                                        <include reference="4vh-wZ-avy"/>
-                                                        <include reference="8Yk-fd-i7Q"/>
-                                                        <exclude reference="dam-43-Ulb"/>
-                                                        <include reference="gwH-US-EZ0"/>
-                                                        <exclude reference="mpS-va-QyJ"/>
+                                                        <exclude reference="oyS-FJ-yMX"/>
                                                     </mask>
                                                 </variation>
                                             </view>
@@ -275,6 +275,11 @@
                     </view>
                     <connections>
                         <outlet property="chooseImageButton" destination="dn8-YI-nwp" id="eh3-kW-Ogg"/>
+                        <outlet property="invertColorsButton" destination="GVC-o5-Oh1" id="VcR-3d-bor"/>
+                        <outlet property="mirrorHalvesButton" destination="N2E-B1-7CD" id="Evj-NZ-9IA"/>
+                        <outlet property="mirrorImageButton" destination="71G-k1-6Bn" id="VcC-JI-epG"/>
+                        <outlet property="monochromeButton" destination="Hu0-RS-vjb" id="nIU-k5-GmP"/>
+                        <outlet property="rotateButton" destination="Zgv-JU-wLp" id="EPL-le-mY3"/>
                         <outlet property="sourceImageView" destination="mZb-aO-6aH" id="anj-a0-Oq3"/>
                         <outlet property="tableView" destination="ULB-fd-m08" id="cPp-kA-BjC"/>
                         <outletCollection property="invisibleViews" destination="MWS-OU-5dX" id="LHJ-Bb-dab"/>

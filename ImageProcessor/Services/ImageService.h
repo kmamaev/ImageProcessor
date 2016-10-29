@@ -9,7 +9,7 @@
 
 - (void)updateSourceImageWithImage:(UIImage *)image;
 
-- (void)addResultImage:(UIImage *)image;
+- (NSURL *)addResultImage:(UIImage *)image;
 
 - (void)deleteResultImageWithURL:(NSURL *)imageURL;
 

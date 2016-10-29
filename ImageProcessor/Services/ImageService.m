@@ -65,7 +65,7 @@ static NSString *const _resultImagesArrayName = @"resultImageNames";
     [self.imageStorageService storeImage:image withURL:self.sourceImageURL];
 }
 
-- (void)addResultImage:(UIImage *)image {
+- (NSURL *)addResultImage:(UIImage *)image {
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingPathExtension:_imageExtension];
     NSString *imagePath = [[ImageService resultImagesFolderPath] stringByAppendingPathComponent:fileName];
     NSURL *imageURL = [NSURL fileURLWithPath:imagePath];
@@ -78,6 +78,8 @@ static NSString *const _resultImagesArrayName = @"resultImageNames";
     NSMutableArray<NSString *> *resultImagesPathsProxy = [self mutableArrayValueForKey:NSStringFromSelector(@selector(resultImageNames))];
     [resultImagesPathsProxy insertObject:fileName atIndex:0];
     [self.resultImageNames writeToURL:[ImageService resultImagesArrayURL] atomically:YES];
+
+    return imageURL;
 }
 
 - (void)deleteResultImageWithURL:(NSURL *)imageURL {

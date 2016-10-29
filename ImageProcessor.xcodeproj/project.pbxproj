@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56AB29511DBCA7A1002C2FB9 /* ResultImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AB294F1DBCA7A1002C2FB9 /* ResultImageCell.m */; };
-		56AB29521DBCA7A1002C2FB9 /* ResultImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56AB29501DBCA7A1002C2FB9 /* ResultImageCell.xib */; };
+		56BBB51B1DC5FB7E009129B3 /* ImageFilterService.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BBB5181DC5FB7E009129B3 /* ImageFilterService.m */; };
+		56BBB51C1DC5FB7E009129B3 /* ImageFilterTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BBB51A1DC5FB7E009129B3 /* ImageFilterTask.m */; };
+		56BBB53D1DC619C6009129B3 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BBB5341DC619C6009129B3 /* MainVC.m */; };
+		56BBB53E1DC619C6009129B3 /* MainVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BBB5361DC619C6009129B3 /* MainVM.m */; };
+		56BBB53F1DC619C6009129B3 /* ResultImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BBB5391DC619C6009129B3 /* ResultImageCell.m */; };
+		56BBB5401DC619C6009129B3 /* ResultImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BBB53A1DC619C6009129B3 /* ResultImageCell.xib */; };
+		56BBB5411DC619C6009129B3 /* ResultImageVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BBB53C1DC619C6009129B3 /* ResultImageVM.m */; };
 		B52722231DBB8E7600888864 /* UIBarButtonItem+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52721FF1DBB8E7600888864 /* UIBarButtonItem+Localization.m */; };
 		B52722241DBB8E7600888864 /* UIButton+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722011DBB8E7600888864 /* UIButton+Localization.m */; };
 		B52722251DBB8E7600888864 /* UILabel+Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722031DBB8E7600888864 /* UILabel+Localization.m */; };
@@ -24,7 +29,6 @@
 		B52722301DBB8E7600888864 /* UIColor+ImageProcessorConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722191DBB8E7600888864 /* UIColor+ImageProcessorConstants.m */; };
 		B52722311DBB8E7600888864 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = B527221B1DBB8E7600888864 /* UIImage+Filters.m */; };
 		B52722321DBB8E7600888864 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B527221E1DBB8E7600888864 /* Main.storyboard */; };
-		B52722331DBB8E7600888864 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722211DBB8E7600888864 /* MainVC.m */; };
 		B527223C1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = B527223B1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m */; };
 		B52722401DBBB0A200888864 /* SeparatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B527223F1DBBB0A200888864 /* SeparatorView.m */; };
 		B52722421DBBB13600888864 /* SeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52722411DBBB13600888864 /* SeparatorView.xib */; };
@@ -32,12 +36,23 @@
 		B52722491DBC91A200888864 /* FileRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = B52722481DBC91A200888864 /* FileRoutines.m */; };
 		B559E5771DC46C1A0061D441 /* ImageStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = B559E5761DC46C1A0061D441 /* ImageStorageService.m */; };
 		B559E57A1DC46C600061D441 /* UIImage+Decompression.m in Sources */ = {isa = PBXBuildFile; fileRef = B559E5791DC46C600061D441 /* UIImage+Decompression.m */; };
+		BF8A22A5C65200488DCF0B16 /* DelayedImageFilterService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A2CBCCA780B8C7310D650 /* DelayedImageFilterService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		56AB294E1DBCA7A1002C2FB9 /* ResultImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultImageCell.h; sourceTree = "<group>"; };
-		56AB294F1DBCA7A1002C2FB9 /* ResultImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultImageCell.m; sourceTree = "<group>"; };
-		56AB29501DBCA7A1002C2FB9 /* ResultImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultImageCell.xib; sourceTree = "<group>"; };
+		56BBB5171DC5FB7E009129B3 /* ImageFilterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFilterService.h; sourceTree = "<group>"; };
+		56BBB5181DC5FB7E009129B3 /* ImageFilterService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFilterService.m; sourceTree = "<group>"; };
+		56BBB5191DC5FB7E009129B3 /* ImageFilterTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFilterTask.h; sourceTree = "<group>"; };
+		56BBB51A1DC5FB7E009129B3 /* ImageFilterTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFilterTask.m; sourceTree = "<group>"; };
+		56BBB5331DC619C6009129B3 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		56BBB5341DC619C6009129B3 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		56BBB5351DC619C6009129B3 /* MainVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVM.h; sourceTree = "<group>"; };
+		56BBB5361DC619C6009129B3 /* MainVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVM.m; sourceTree = "<group>"; };
+		56BBB5381DC619C6009129B3 /* ResultImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultImageCell.h; sourceTree = "<group>"; };
+		56BBB5391DC619C6009129B3 /* ResultImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultImageCell.m; sourceTree = "<group>"; };
+		56BBB53A1DC619C6009129B3 /* ResultImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultImageCell.xib; sourceTree = "<group>"; };
+		56BBB53B1DC619C6009129B3 /* ResultImageVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultImageVM.h; sourceTree = "<group>"; };
+		56BBB53C1DC619C6009129B3 /* ResultImageVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultImageVM.m; sourceTree = "<group>"; };
 		B52721FE1DBB8E7600888864 /* UIBarButtonItem+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Localization.h"; sourceTree = "<group>"; };
 		B52721FF1DBB8E7600888864 /* UIBarButtonItem+Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Localization.m"; sourceTree = "<group>"; };
 		B52722001DBB8E7600888864 /* UIButton+Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Localization.h"; sourceTree = "<group>"; };
@@ -64,8 +79,6 @@
 		B527221A1DBB8E7600888864 /* UIImage+Filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filters.h"; sourceTree = "<group>"; };
 		B527221B1DBB8E7600888864 /* UIImage+Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filters.m"; sourceTree = "<group>"; };
 		B527221E1DBB8E7600888864 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		B52722201DBB8E7600888864 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
-		B52722211DBB8E7600888864 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		B52722341DBB8EAF00888864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B527223A1DBB8FDD00888864 /* NSIndexSet+IndexPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+IndexPaths.h"; sourceTree = "<group>"; };
 		B527223B1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+IndexPaths.m"; sourceTree = "<group>"; };
@@ -81,6 +94,8 @@
 		B559E5761DC46C1A0061D441 /* ImageStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStorageService.m; sourceTree = "<group>"; };
 		B559E5781DC46C600061D441 /* UIImage+Decompression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Decompression.h"; sourceTree = "<group>"; };
 		B559E5791DC46C600061D441 /* UIImage+Decompression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Decompression.m"; sourceTree = "<group>"; };
+		BF8A264203541A65058451B4 /* DelayedImageFilterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayedImageFilterService.h; sourceTree = "<group>"; };
+		BF8A2CBCCA780B8C7310D650 /* DelayedImageFilterService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelayedImageFilterService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +109,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56BBB5161DC5FB7E009129B3 /* ImageFilter */ = {
+			isa = PBXGroup;
+			children = (
+				56BBB5171DC5FB7E009129B3 /* ImageFilterService.h */,
+				56BBB5181DC5FB7E009129B3 /* ImageFilterService.m */,
+				56BBB5191DC5FB7E009129B3 /* ImageFilterTask.h */,
+				56BBB51A1DC5FB7E009129B3 /* ImageFilterTask.m */,
+				BF8A264203541A65058451B4 /* DelayedImageFilterService.h */,
+				BF8A2CBCCA780B8C7310D650 /* DelayedImageFilterService.m */,
+			);
+			path = ImageFilter;
+			sourceTree = "<group>";
+		};
+		56BBB5321DC619C6009129B3 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				56BBB5331DC619C6009129B3 /* MainVC.h */,
+				56BBB5341DC619C6009129B3 /* MainVC.m */,
+				56BBB5351DC619C6009129B3 /* MainVM.h */,
+				56BBB5361DC619C6009129B3 /* MainVM.m */,
+				56BBB5371DC619C6009129B3 /* ResultImageCell */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		56BBB5371DC619C6009129B3 /* ResultImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				56BBB5381DC619C6009129B3 /* ResultImageCell.h */,
+				56BBB5391DC619C6009129B3 /* ResultImageCell.m */,
+				56BBB53A1DC619C6009129B3 /* ResultImageCell.xib */,
+				56BBB53B1DC619C6009129B3 /* ResultImageVM.h */,
+				56BBB53C1DC619C6009129B3 /* ResultImageVM.m */,
+			);
+			path = ResultImageCell;
+			sourceTree = "<group>";
+		};
 		B52721FC1DBB8E7600888864 /* External */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,30 +238,10 @@
 		B527221D1DBB8E7600888864 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				56BBB5321DC619C6009129B3 /* MainVC */,
 				B527221E1DBB8E7600888864 /* Main.storyboard */,
-				B527221F1DBB8E7600888864 /* MainVC */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		B527221F1DBB8E7600888864 /* MainVC */ = {
-			isa = PBXGroup;
-			children = (
-				B52722201DBB8E7600888864 /* MainVC.h */,
-				B52722211DBB8E7600888864 /* MainVC.m */,
-				B52722221DBB8E7600888864 /* ResultImageCell */,
-			);
-			path = MainVC;
-			sourceTree = "<group>";
-		};
-		B52722221DBB8E7600888864 /* ResultImageCell */ = {
-			isa = PBXGroup;
-			children = (
-				56AB294E1DBCA7A1002C2FB9 /* ResultImageCell.h */,
-				56AB294F1DBCA7A1002C2FB9 /* ResultImageCell.m */,
-				56AB29501DBCA7A1002C2FB9 /* ResultImageCell.xib */,
-			);
-			path = ResultImageCell;
 			sourceTree = "<group>";
 		};
 		B527223D1DBBB08300888864 /* Views */ = {
@@ -225,6 +257,7 @@
 		B52722431DBC8BB200888864 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				56BBB5161DC5FB7E009129B3 /* ImageFilter */,
 				B52722441DBC8BD400888864 /* ImageService.h */,
 				B52722451DBC8BD400888864 /* ImageService.m */,
 				B559E5751DC46C1A0061D441 /* ImageStorageService.h */,
@@ -307,12 +340,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56BBB5401DC619C6009129B3 /* ResultImageCell.xib in Resources */,
 				B527222D1DBB8E7600888864 /* LaunchScreen.storyboard in Resources */,
 				B52722421DBBB13600888864 /* SeparatorView.xib in Resources */,
 				B52722321DBB8E7600888864 /* Main.storyboard in Resources */,
 				B527222E1DBB8E7600888864 /* Localizable.strings in Resources */,
 				B527222C1DBB8E7600888864 /* Assets.xcassets in Resources */,
-				56AB29521DBCA7A1002C2FB9 /* ResultImageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,18 +363,23 @@
 				B52722241DBB8E7600888864 /* UIButton+Localization.m in Sources */,
 				B52722231DBB8E7600888864 /* UIBarButtonItem+Localization.m in Sources */,
 				B527222A1DBB8E7600888864 /* AppDelegate.m in Sources */,
+				56BBB5411DC619C6009129B3 /* ResultImageVM.m in Sources */,
 				B52722491DBC91A200888864 /* FileRoutines.m in Sources */,
+				56BBB53F1DC619C6009129B3 /* ResultImageCell.m in Sources */,
 				B52722291DBB8E7600888864 /* UIColor+HexString.m in Sources */,
+				56BBB53D1DC619C6009129B3 /* MainVC.m in Sources */,
+				56BBB51C1DC5FB7E009129B3 /* ImageFilterTask.m in Sources */,
 				B52722251DBB8E7600888864 /* UILabel+Localization.m in Sources */,
-				56AB29511DBCA7A1002C2FB9 /* ResultImageCell.m in Sources */,
 				B559E5771DC46C1A0061D441 /* ImageStorageService.m in Sources */,
-				B52722331DBB8E7600888864 /* MainVC.m in Sources */,
 				B527222F1DBB8E7600888864 /* main.m in Sources */,
 				B527223C1DBB8FDD00888864 /* NSIndexSet+IndexPaths.m in Sources */,
+				56BBB53E1DC619C6009129B3 /* MainVM.m in Sources */,
 				B559E57A1DC46C600061D441 /* UIImage+Decompression.m in Sources */,
 				B52722461DBC8BD400888864 /* ImageService.m in Sources */,
+				56BBB51B1DC5FB7E009129B3 /* ImageFilterService.m in Sources */,
 				B52722261DBB8E7600888864 /* UINavigationItem+Localization.m in Sources */,
 				B52722401DBBB0A200888864 /* SeparatorView.m in Sources */,
+				BF8A22A5C65200488DCF0B16 /* DelayedImageFilterService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

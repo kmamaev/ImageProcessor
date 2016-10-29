@@ -1,5 +1,8 @@
 #import "ImageService.h"
 
+// Services
+#import "ImageStorageService.h"
+
 // Utils
 #import "FileRoutines.h"
 
@@ -12,8 +15,10 @@ static NSString *const _resultImagesArrayName = @"resultImageNames";
 
 @interface ImageService ()
 @property (nonatomic, readwrite) UIImage *sourceImage;
+@property (nonatomic, readwrite) NSURL *sourceImageURL;
 @property (nonatomic, readwrite) NSArray<NSURL *> *resultImagesURLs;
 @property (nonatomic) NSArray<NSString *> *resultImageNames;
+@property (nonatomic) ImageStorageService *imageStorageService;
 @end
 
 
@@ -26,8 +31,15 @@ static NSString *const _resultImagesArrayName = @"resultImageNames";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSData *sourceImageData = [NSData dataWithContentsOfURL:[ImageService sourceImageURL]];
-        _sourceImage = [UIImage imageWithData:sourceImageData];
+        _imageStorageService = [ImageStorageService sharedInstance];
+        NSURL *sourceImageURL = [ImageService sourceImageURL];
+        BOOL sourceImageExists = [[NSFileManager defaultManager] fileExistsAtPath:sourceImageURL.path];
+        if (sourceImageExists) {
+            _sourceImageURL = sourceImageURL;
+                [_imageStorageService loadImageWithURL:_sourceImageURL completion:^(UIImage *image) {
+                        self.sourceImage = image;
+                    }];
+        }
         _resultImageNames = [NSArray arrayWithContentsOfURL:[ImageService resultImagesArrayURL]];
         if (!_resultImageNames) {
             _resultImageNames = [NSArray array];
@@ -47,19 +59,18 @@ static NSString *const _resultImagesArrayName = @"resultImageNames";
 - (void)updateSourceImageWithImage:(UIImage *)image {
     self.sourceImage = image;
 
-    NSData *imageData = UIImagePNGRepresentation(image);
-    [imageData writeToURL:[ImageService sourceImageURL] atomically:YES];
+    if (!self.sourceImageURL) {
+        self.sourceImageURL = [ImageService sourceImageURL];
+    }
+    [self.imageStorageService storeImage:image withURL:self.sourceImageURL];
 }
 
 - (void)addResultImage:(UIImage *)image {
-    [ImageService createResultImagesFolderIfNeeded];
-
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingPathExtension:_imageExtension];
     NSString *imagePath = [[ImageService resultImagesFolderPath] stringByAppendingPathComponent:fileName];
     NSURL *imageURL = [NSURL fileURLWithPath:imagePath];
 
-    NSData *imageData = UIImagePNGRepresentation(image);
-    [imageData writeToURL:imageURL atomically:YES];
+    [self.imageStorageService storeImage:image withURL:imageURL];
 
     NSMutableArray<NSURL *> *resultImagesURLsProxy = [self mutableArrayValueForKey:NSStringFromSelector(@selector(resultImagesURLs))];
     [resultImagesURLsProxy insertObject:imageURL atIndex:0];
@@ -70,12 +81,7 @@ static NSString *const _resultImagesArrayName = @"resultImageNames";
 }
 
 - (void)deleteResultImageWithURL:(NSURL *)imageURL {
-    NSError *error = nil;
-    [[NSFileManager defaultManager] removeItemAtURL:imageURL error:&error];
-    if (error) {
-        NSLog(@"Error: %@.", error.localizedDescription);
-        return;
-    }
+    [self.imageStorageService deleteImageWithURL:imageURL];
 
     NSMutableArray<NSURL *> *resultImagesURLsProxy = [self mutableArrayValueForKey:NSStringFromSelector(@selector(resultImagesURLs))];
     [resultImagesURLsProxy removeObject:imageURL];
@@ -86,19 +92,6 @@ static NSString *const _resultImagesArrayName = @"resultImageNames";
 }
 
 #pragma mark - Auxiliaries
-
-+ (void)createResultImagesFolderIfNeeded {
-    NSString *resultImagesFolderPath = [self resultImagesFolderPath];
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    BOOL resultImagesFolderAlreadyExists = [fileManager fileExistsAtPath:resultImagesFolderPath];
-    NSError *error = nil;
-    if (!resultImagesFolderAlreadyExists) {
-        [fileManager createDirectoryAtPath:resultImagesFolderPath withIntermediateDirectories:NO attributes:nil error:&error];
-        if (error) {
-            NSLog(@"Error: %@.", error.localizedDescription);
-        }
-    }
-}
 
 + (NSURL *)sourceImageURL {
     NSString *sourceImagePath = [[documentsPath() stringByAppendingPathComponent:_sourceImageName]

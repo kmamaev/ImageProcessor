@@ -58,4 +58,39 @@
     return loadImageOperation;
 }
 
+- (void)storeImage:(UIImage *)image withURL:(NSURL *)imageURL {
+    [[self class] createFolderForImageWithURLIfNeeded:imageURL];
+
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [imageData writeToURL:imageURL atomically:YES];
+    [self.imageCache setObject:image forKey:imageURL];
+}
+
+- (void)deleteImageWithURL:(NSURL *)imageURL {
+    NSError *error = nil;
+    [[NSFileManager defaultManager] removeItemAtURL:imageURL error:&error];
+    if (error) {
+        NSLog(@"Error: %@.", error.localizedDescription);
+        // TODO: handle error
+        return;
+    }
+    [self.imageCache removeObjectForKey:imageURL];
+}
+
+#pragma mark - Auxiliaries
+
++ (void)createFolderForImageWithURLIfNeeded:(NSURL *)imageURL {
+    NSURL *folderURL = [imageURL URLByDeletingLastPathComponent];
+    NSString *folderPath = folderURL.path;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL resultImagesFolderAlreadyExists = [fileManager fileExistsAtPath:folderPath];
+    NSError *error = nil;
+    if (!resultImagesFolderAlreadyExists) {
+        [fileManager createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:&error];
+        if (error) {
+            NSLog(@"Error: %@.", error.localizedDescription);
+        }
+    }
+}
+
 @end

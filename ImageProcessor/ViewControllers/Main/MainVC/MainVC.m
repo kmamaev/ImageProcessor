@@ -17,6 +17,7 @@ static NSString *const _resultImageCellReuseId = @"resultImageCellReuseId";
 static void *const _kvoContext = (void *)&_kvoContext;
 static NSString *const _resultImagesKeyPath = @"imageService.resultImagesURLs";
 static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
+static NSString *const _sourceImageURLKeyPath = @"imageService.sourceImageURL";
 
 
 @interface MainVC () <
@@ -52,6 +53,7 @@ static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
 - (void)dealloc {
     [self removeObserver:self forKeyPath:_resultImagesKeyPath context:_kvoContext];
     [self removeObserver:self forKeyPath:_sourceImageKeyPath context:_kvoContext];
+    [self removeObserver:self forKeyPath:_sourceImageURLKeyPath context:_kvoContext];
 }
 
 #pragma mark - ViewController's lifecycle
@@ -105,6 +107,8 @@ static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
 - (void)configureBindings {
     [self addObserver:self forKeyPath:_resultImagesKeyPath options:0 context:_kvoContext];
     [self addObserver:self forKeyPath:_sourceImageKeyPath options:
+        NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:_kvoContext];
+    [self addObserver:self forKeyPath:_sourceImageURLKeyPath options:
         NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:_kvoContext];
 }
 
@@ -244,7 +248,7 @@ static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
 }
 
 - (void)updateChooseImageButtonState {
-    BOOL needShowChooseImageButton = self.imageService.sourceImage == nil;
+    BOOL needShowChooseImageButton = self.imageService.sourceImageURL == nil;
     self.chooseImageButton.hidden = !needShowChooseImageButton;
 }
 
@@ -266,6 +270,9 @@ static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
         }
         else if ([keyPath isEqualToString:_sourceImageKeyPath]) {
             [self handleChangeForSourceImage:change];
+        }
+        else if ([keyPath isEqualToString:_sourceImageURLKeyPath]) {
+            [self handleChangeForSourceImageURL:change];
         }
     }
     else {
@@ -309,6 +316,9 @@ static NSString *const _sourceImageKeyPath = @"imageService.sourceImage";
 - (void)handleChangeForSourceImage:(NSDictionary *__unused)change {
     self.sourceImageView.image = self.imageService.sourceImage;
     [self updateFilterButtonsStates];
+}
+
+- (void)handleChangeForSourceImageURL:(NSDictionary *__unused)change {
     [self updateChooseImageButtonState];
 }
 

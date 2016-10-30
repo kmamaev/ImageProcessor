@@ -5,7 +5,7 @@
 
 
 @interface ImageStorageService ()
-@property (nonatomic) NSOperationQueue *loadImageQueue;
+@property (nonatomic) NSOperationQueue *storageAccessQueue;
 @property (atomic) NSCache<NSURL *, UIImage *> *imageCache;
 @end
 
@@ -17,7 +17,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _loadImageQueue = [[NSOperationQueue alloc] init];
+        _storageAccessQueue = [[NSOperationQueue alloc] init];
         _imageCache = [[NSCache alloc] init];
     }
     return self;
@@ -53,7 +53,7 @@
                 }];
         }];
 
-    [self.loadImageQueue addOperation:loadImageOperation];
+    [self.storageAccessQueue addOperation:loadImageOperation];
 
     return loadImageOperation;
 }
@@ -61,8 +61,10 @@
 - (void)storeImage:(UIImage *)image withURL:(NSURL *)imageURL {
     [[self class] createFolderForImageWithURLIfNeeded:imageURL];
 
-    NSData *imageData = UIImagePNGRepresentation(image);
-    [imageData writeToURL:imageURL atomically:YES];
+    [self.storageAccessQueue addOperationWithBlock:^{
+            NSData *imageData = UIImagePNGRepresentation(image);
+            [imageData writeToURL:imageURL atomically:YES];
+        }];
     [self.imageCache setObject:image forKey:imageURL];
 }
 
